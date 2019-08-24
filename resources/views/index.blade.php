@@ -8,7 +8,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title></title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     </head>
     <body>
@@ -26,16 +26,16 @@
                                 <div class="collapse navbar-collapse" id="navbarNav">
                                     <ul class="navbar-nav">
                                         <li class="nav-item active">
-                                            <a class="nav-link font-size--rg" href="#">Home <span class="sr-only">(current)</span></a>
+                                            <a class="nav-link font-size--rg" href="#hero">Home <span class="sr-only">(current)</span></a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link font-size--rg" href="#">About</a>
+                                            <a class="nav-link font-size--rg" href="#about">About</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link font-size--rg" href="#">Menu</a>
+                                            <a class="nav-link font-size--rg" href="#menu">Menu</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link font-size--rg" href="#">Contact</a>
+                                            <a class="nav-link font-size--rg" href="#contact">Contact</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -67,7 +67,7 @@
                     <a class="hero-logo d-block text-center">
                         <img src="{{ asset('img/logo.png') }}" alt="" href="/">
                     </a>
-                    <div class="hero-title font-family--lora font-size--xl text-center text-color--white mt-2 mt-md-3 mt-lg-4">
+                    <div class="hero-title font-family--lora font-size--xl text-center text-color--white my-2 my-md-3 my-lg-4">
                         Pour Taproom
                     </div>
                     <div class="dots-white">
@@ -76,12 +76,12 @@
                         Come enjoy a unique experience at our 118 tap self-pour taproom where you can taste from our large wall of taps, featuring a wide selection of curated local and regional craft beers, wines and ciders. No prepaying, just open a tab and you’re good to go.
                     </div>
                     <div class="hero-button my-2 my-md-3 my-lg-4 text-center">
-                        <span class="button button--transparent-white">
+                        <a class="button button--transparent-white font-size--rg" href="/#menu">
                             Show Menu
-                        </span>
-                        <span class="button button--transparent-white">
+                        </a>
+                        <a class="button button--transparent-white font-size--rg" href="/#event">
                             Book Event
-                        </span>
+                        </a>
                     </div>
                 </div>
             </div>

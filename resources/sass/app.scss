@@ -9,6 +9,10 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: $font-poppins;
     font-size: $font-rg;
@@ -33,7 +37,7 @@ a {
     background-image: url('img/hero.png');
     background-position: bottom center;
     background-size: cover;
-    height: fill-available;
+    height: stretch;
 
     @extend %overlay;
 
@@ -118,6 +122,9 @@ a {
 
             .social-icon {
                 font-size: 36px;
+                line-height: 36px;
+                padding-top: 0;
+                padding-bottom: 0;
                 ion-icon {
                     vertical-align: top;
                 }
@@ -133,12 +140,17 @@ a {
     }
 
     .hero-logo {
-        transform: scale(0.7);
-        @include media-breakpoint-up(md) {
-            transform: scale(0.75);
-        }
-        @include media-breakpoint-up(lg) {
-            transform: scale(1);
+        img {
+            width: 250px * 0.7;
+            height: 160px * 0.7;
+            @include media-breakpoint-up(md) {
+                width: 250px * 0.8;
+                height: 160px * 0.8;
+            }
+            @include media-breakpoint-up(lg) {
+                width: 250px;
+                height: 160px;
+            }
         }
     }
 
@@ -203,16 +215,13 @@ a {
     }
     .menu-items {
         .menu-item-img {
-            border-radius: 50%;
-            height: 90px;
-            width: 90px;
             display: inline-block;
-            background: $white;
-            border: 2px solid $content-color;
             img {
                 border-radius: 50%;
-                position: relative;
-                top: 3px;
+                width: 90px;
+                height: 90px;
+                border: 1px solid $content-color;
+                background: $white;
             }
         }
         .menu-item {

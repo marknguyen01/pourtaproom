@@ -56,18 +56,24 @@
   }
 }
 
-.text-color--white,
-.button--transparent-white {
+.text-color--white {
   color: #ffffff;
 }
 
 .button {
   padding: 12px 0;
   width: 160px;
+  margin: 0;
   border-radius: 30px;
   display: inline-block;
   cursor: pointer;
-  margin: 0 12px;
+}
+
+@media (min-width: 992px) {
+  .button {
+    width: 240px;
+    margin: 0 36px;
+  }
 }
 
 .button:first-of-type {
@@ -81,7 +87,8 @@
 .button--transparent-white {
   border: 2px solid #ffffff;
   background-color: transparent;
-  transition: 0.75s ease-in;
+  color: #ffffff;
+  transition: background-color 0.75s ease-in, border-color 0.75s ease;
 }
 
 .button--transparent-white:hover {
@@ -10783,6 +10790,10 @@ a.text-dark:focus {
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   font-size: 22px;
@@ -10811,7 +10822,7 @@ a:hover {
   background-size: cover;
   height: -webkit-fill-available;
   height: -moz-available;
-  height: fill-available;
+  height: stretch;
 }
 
 #hero .container-fluid {
@@ -10907,6 +10918,9 @@ a:hover {
 
 #hero .navbar .nav-item .social-icon {
   font-size: 36px;
+  line-height: 36px;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 #hero .navbar .nav-item .social-icon ion-icon {
@@ -10920,19 +10934,22 @@ a:hover {
   }
 }
 
-#hero .hero-logo {
-  transform: scale(0.7);
+#hero .hero-logo img {
+  width: 175px;
+  height: 112px;
 }
 
 @media (min-width: 768px) {
-  #hero .hero-logo {
-    transform: scale(0.75);
+  #hero .hero-logo img {
+    width: 200px;
+    height: 128px;
   }
 }
 
 @media (min-width: 992px) {
-  #hero .hero-logo {
-    transform: scale(1);
+  #hero .hero-logo img {
+    width: 250px;
+    height: 160px;
   }
 }
 
@@ -10999,18 +11016,15 @@ a:hover {
 }
 
 #menu .menu-items .menu-item-img {
-  border-radius: 50%;
-  height: 90px;
-  width: 90px;
   display: inline-block;
-  background: #ffffff;
-  border: 2px solid #5C5C5D;
 }
 
 #menu .menu-items .menu-item-img img {
   border-radius: 50%;
-  position: relative;
-  top: 3px;
+  width: 90px;
+  height: 90px;
+  border: 1px solid #5C5C5D;
+  background: #ffffff;
 }
 
 #menu .menu-items .menu-item {
@@ -11066,20 +11080,22 @@ a:hover {
 }
 
 .dots-grey {
-  background-image: repeating-radial-gradient(center center, #484E51, #484E51 6px, transparent 7px, transparent 100%);
-  background-image: -webkit-repeating-radial-gradient(center center, #484E51, #484E51 6px, transparent 7px, transparent 100%);
+  background-image: radial-gradient(ellipse at center, #484E51 0%, #484E51 30%, transparent 30%);
   height: 24px;
-  width: 192px;
-  margin: 12px auto;
-  background-size: 32px 26px;
+  width: 172px;
+  margin: 0 auto;
+  background-size: 12px 12px;
+  background-position: center;
+  background-repeat: repeat-x;
 }
 
 .dots-white {
-  background-image: repeating-radial-gradient(center center, #ffffff, #ffffff 6px, transparent 7px, transparent 100%);
-  background-image: -webkit-repeating-radial-gradient(center center, #ffffff, #ffffff 6px, transparent 7px, transparent 100%);
+  background-image: radial-gradient(ellipse at center, #ffffff 0%, #ffffff 30%, transparent 30%);
   height: 24px;
-  width: 192px;
-  margin: 12px auto;
-  background-size: 32px 26px;
+  width: 172px;
+  margin: 0 auto;
+  background-size: 12px 12px;
+  background-position: center;
+  background-repeat: repeat-x;
 }
 

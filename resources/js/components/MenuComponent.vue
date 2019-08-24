@@ -7,17 +7,17 @@
             <div class="row">
                 <div class="col-lg-6" v-for="item in items" v-bind:key="item.id">
                     <div class="d-flex">
-                        <div class="menu-item-img my-3">
-                            <img v-bind:src="item.label_image" v-bind:alt="item.name" class="img-fluid">
+                        <div class="menu-item-img my-3" v-b-popover.top.hover="item.description != undefined && item.description.length > 0 ? item.description : 'No description'">
+                            <img v-bind:src="item.label_image" v-bind:alt="item.name">
                         </div>
                         <div class="menu-item align-self-center">
                             <div class="menu-item-header">
-                                <span class="menu-item-name font-weight-bold font-size--rg">{{ item.name }}</span>
+                                <span class="menu-item-name font-weight-bold font-size--rg">{{ item.tap_number}}. {{ item.name }}</span>
                                 <span class="menu-item-dots"></span>
                                 <span class="menu-item-abv font-weight-bold font-size--rg">{{ item.abv }}% ABV</span>
                             </div>
                             <div class="menu-item-desc font-size--rg">
-                                {{ item.brewery }} | {{ item.style }} | {{ item.ibu }} IBU | {{ item.rating }} stars
+                                {{ item.brewery }} | {{ item.style }} | {{ item.ibu }} IBU
                             </div>
                         </div>
                     </div>
