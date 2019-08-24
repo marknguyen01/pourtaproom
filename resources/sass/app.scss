@@ -10,8 +10,8 @@
 @import '~bootstrap/scss/bootstrap';
 
 body {
-    @extend .font-family--poppins;
-    @extend .font-size--rg;
+    font-family: $font-poppins;
+    font-size: $font-rg;
 }
 
 a {
@@ -25,8 +25,8 @@ a {
     padding-left: $base-spacing;
     padding-right: $base-spacing;
     @include media-breakpoint-up(lg) {
-        padding-left: ($base-spacing * 3);
-        padding-right: ($base-spacing * 3);
+        padding-left: ($base-spacing * 12);
+        padding-right: ($base-spacing * 12);
     }
 }
 #hero {
@@ -35,16 +35,7 @@ a {
     background-size: cover;
     height: fill-available;
 
-    &:after {
-        content: ' ';
-        background-color: $transparent-black;
-        width: fill-available;
-        height: fill-available;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 1;
-    }
+    @extend %overlay;
 
     .container-fluid {
         padding-top: ($base-spacing * 2);
@@ -75,7 +66,7 @@ a {
             z-index: 1;
             padding: 0.25rem;
             cursor: pointer;
-            border: 1px solid rgba(0, 0, 0, 0.1);        
+            border: 1px solid rgba(0, 0, 0, 0.1);
             background-color: $white;
             .navbar-toggler-icon {
                 background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
@@ -119,8 +110,7 @@ a {
                 }
             }
             .nav-link {
-                @extend .font-family--lora;
-                @extend .font-size--rg;
+                font-family: $font-lora;
                 @include media-breakpoint-up(lg) {
                     padding: 0 ($base-spacing * 2);
                 }
@@ -153,8 +143,8 @@ a {
     }
 
     .hero-scroll {
-        @extend .font-size--rg;
-        @extend .font-family--poppins;
+        font-family: $font-poppins;
+        font-size: $font-rg;
         position: absolute;
         bottom: 0;
         z-index: 3;
@@ -194,10 +184,67 @@ a {
 
 #video {
     min-height: 50vh;
+    background-image: url('img/video.png');
+    position: relative;
+    @extend %overlay;
 }
 
 #menu {
     background-color: $bg-accent-color;
+
+    .menu-categories {
+        .menu-category {
+            padding: 0 $base-spacing;
+            cursor: pointer;
+            &.active {
+                font-weight: bold;
+            }
+        }
+    }
+    .menu-items {
+        .menu-item-img {
+            border-radius: 50%;
+            height: 90px;
+            width: 90px;
+            display: inline-block;
+            background: $white;
+            border: 2px solid $content-color;
+            img {
+                border-radius: 50%;
+                position: relative;
+                top: 3px;
+            }
+        }
+        .menu-item {
+            display: inline-block;
+            width: calc(100% - 96px);
+            margin-left: $base-spacing;
+            .menu-item-header {
+                display: flex;
+                .menu-item-name, .menu-item-abv {
+                    flex: 1 0 auto;
+                }
+                .menu-item-name {
+                    max-width: calc(100% - 96px);
+                }
+                .menu-item-dots {
+                    flex: 0 1 auto;
+                    overflow: hidden;
+                    &:before {
+                        display: block;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: clip;
+                        content:
+                          ". . . . . . . . . . . . . . . . . . . . "
+                          ". . . . . . . . . . . . . . . . . . . . "
+                          ". . . . . . . . . . . . . . . . . . . . "
+                          ". . . . . . . . . . . . . . . . . . . . "
+                    }
+                }
+            }
+        }
+    }
 }
 
 .section {
@@ -207,13 +254,13 @@ a {
 .title-block {
     text-align: center;
     .title {
-        @extend .font-family--lora;
+        font-family: $font-lora;
         @extend .font-size--lg;
         color: $red;
         font-weight: bold;
     }
     .sub-title {
-        @extend .font-family--lora;
+        font-family: $font-lora;
         @extend .font-size--md;
         color: $subtitle-color;
     }

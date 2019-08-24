@@ -12,4 +12,4 @@
 */
 
 Route::get('/', 'HomeController@index')->name('index');
-Route::get('menu/{sectionID}')->name('menu');
+Route::get('menu/{sectionID}', 'HomeController@getItems')->name('menu');

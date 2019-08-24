@@ -26,16 +26,16 @@
                                 <div class="collapse navbar-collapse" id="navbarNav">
                                     <ul class="navbar-nav">
                                         <li class="nav-item active">
-                                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                                            <a class="nav-link font-size--rg" href="#">Home <span class="sr-only">(current)</span></a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">About</a>
+                                            <a class="nav-link font-size--rg" href="#">About</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Menu</a>
+                                            <a class="nav-link font-size--rg" href="#">Menu</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Contact</a>
+                                            <a class="nav-link font-size--rg" href="#">Contact</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -67,7 +67,7 @@
                     <a class="hero-logo d-block text-center">
                         <img src="{{ asset('img/logo.png') }}" alt="" href="/">
                     </a>
-                    <div class="hero-title font-family--lora font-size--xl text-center text-color--white my-2 my-md-3 my-lg-4">
+                    <div class="hero-title font-family--lora font-size--xl text-center text-color--white mt-2 mt-md-3 mt-lg-4">
                         Pour Taproom
                     </div>
                     <div class="dots-white">
@@ -100,10 +100,10 @@
             @include('templates.menu')
         </section>
         <section class="section" id="event">
-        
+
         </section>
         <section class="section" id="contact">
-            
+
         </section>
         <footer>
 

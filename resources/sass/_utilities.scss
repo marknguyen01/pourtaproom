@@ -4,41 +4,43 @@
 @import '~bootstrap/scss/variables';
 @import '~bootstrap/scss/mixins';
 
+
+
 .font-family {
     &--lora {
-        font-family: 'Lora', serif;
+        font-family: $font-lora;
     }
     &--poppins {
-        font-family: 'Poppins', sans-serif;
+        font-family: $font-poppins;
     }
 }
 
 .font-size {
     &--sm {
-        font-size: 14px;
+        font-size: $font-sm;
     }
     &--rg {
-        font-size: 16px;
+        font-size: $font-rg - 6px;
         @include media-breakpoint-up(lg) {
-            font-size: 22px;
+            font-size: $font-rg;
         }
     }
     &--md {
-        font-size: 20px;
+        font-size: $font-md - 6px;
         @include media-breakpoint-up(lg) {
-            font-size: 26px;
+            font-size: $font-md;
         }
     }
     &--lg {
-        font-size: 22px;
+        font-size: $font-lg - 20px;
         @include media-breakpoint-up(lg) {
-            font-size: 42px;
+            font-size: $font-lg;
         }
     }
     &--xl {
-        font-size: 26px;
+        font-size: $font-xl - 30px;
         @include media-breakpoint-up(lg) {
-            font-size: 60px;
+            font-size: $font-xl;
         }
     }
 }
@@ -73,10 +75,23 @@
 }
 
 @mixin create-dots($color) {
-    background-image: repeating-radial-gradient(center center, $color, $color 6px, transparent 6px, transparent 100%);
-    background-image: -webkit-repeating-radial-gradient(center center, $color, $color 6px, transparent 6px, transparent 100%);
+    background-image: repeating-radial-gradient(center center, $color, $color 6px, transparent 7px, transparent 100%);
+    background-image: -webkit-repeating-radial-gradient(center center, $color, $color 6px, transparent 7px, transparent 100%);
     height: 24px;
     width: 192px;
     margin: 12px auto;
     background-size: 32px 26px;
+}
+
+%overlay {
+    &:after {
+        content: ' ';
+        background-color: $transparent-black;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
 }

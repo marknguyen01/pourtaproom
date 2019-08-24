@@ -8,16 +8,7 @@
         </div>
     </div>
     <div class="dots-grey"></div>
-    <div class="menu-content">
-        <div class="menu-categories">
-            @foreach($categories as $category)
-                <span>{{ $category['name'] }}</span>
-            @endforeach
-        </div>
-        <div class="menu-items">
-            @foreach($items as $item)
-                <span>{{ $item['name'] }}</span>
-            @endforeach
-        </div>
+    <div id="menu-app">
+        <menu-component :category-data="{{ json_encode($categories) }}" :item-data="{{ json_encode($items) }}"></menu-component>
     </div>
 </div>
