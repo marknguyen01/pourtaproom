@@ -11038,12 +11038,15 @@ body,
 
 #about .about-img .about-img-right {
   top: -200px;
-  left: 300px;
+}
+
+#about .about-img .about-img-right img {
+  float: right;
 }
 
 #video {
   min-height: 50vh;
-  background-image: linear-gradient(transparent-black, transparent-black), url(/images/video.png?5343758db81961346d782cf3fb032d68);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/images/video.png?5343758db81961346d782cf3fb032d68);
   position: relative;
 }
 

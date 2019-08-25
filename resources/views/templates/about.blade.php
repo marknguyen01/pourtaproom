@@ -3,10 +3,10 @@
         <div class="col-lg-6">
             <div class="about-img d-none d-lg-block">
                 <div class="about-img-left">
-                    <img src="{{ asset('img/about-1.png') }}">
+                    <img src="{{ asset('img/about-1.png') }}" class="img-fluid">
                 </div>
                 <div class="about-img-right">
-                    <img src="{{ asset('img/about-2.png') }}">
+                    <img src="{{ asset('img/about-2.png') }}" class="img-fluid">
                 </div>
             </div>
         </div>

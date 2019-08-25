@@ -1,5 +1,5 @@
 #video {
     min-height: 50vh;
-    background-image: overlay(transparent-black), url('img/video.png');
+    background-image: overlay($transparent-black), url('img/video.png');
     position: relative;
 }
