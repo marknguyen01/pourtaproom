@@ -27,3 +27,5 @@ $transparent-black: rgba($color: #000000, $alpha: 0.5);
 $content-color: #5C5C5D;
 $subtitle-color: #484E51;
 $bg-accent-color: #F9F9F9;
+
+$overlay: linear-gradient($transparent-black, $transparent-black);

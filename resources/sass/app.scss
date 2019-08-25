@@ -34,12 +34,10 @@ a {
     }
 }
 #hero {
-    background-image: url('img/hero.png');
+    background-image: $overlay, url('img/hero.png');
     background-position: bottom center;
     background-size: cover;
     height: stretch;
-
-    @extend %overlay;
 
     .container-fluid {
         padding-top: ($base-spacing * 2);
@@ -68,7 +66,6 @@ a {
             top: 0;
             left: 10px;
             z-index: 1;
-            padding: 0.25rem;
             cursor: pointer;
             border: 1px solid rgba(0, 0, 0, 0.1);
             background-color: $white;
@@ -79,8 +76,9 @@ a {
 
         .navbar-nav {
             background-color: white;
+            border: 1px solid rgba(0, 0, 0, 0.1);
             margin-top: $base-spacing;
-            padding: 0 ($base-spacing / 2);
+            padding: $base-spacing;
             @include media-breakpoint-up(md) {
                 background-color: transparent;
                 margin-top: 0;
@@ -196,9 +194,8 @@ a {
 
 #video {
     min-height: 50vh;
-    background-image: url('img/video.png');
+    background-image: $overlay, url('img/video.png');
     position: relative;
-    @extend %overlay;
 }
 
 #menu {
