@@ -9,7 +9,7 @@
         font-size: $font-sm;
     }
     &--rg {
-        font-size: $font-rg - 6px !important;
+        font-size: $font-sm;
         @include media-breakpoint-up(lg) {
             font-size: $font-rg !important;
         }
@@ -42,4 +42,8 @@
     &--poppins {
         font-family: $font-poppins;
     }
+}
+
+@function overlay($color) {
+    @return linear-gradient($color, $color);
 }

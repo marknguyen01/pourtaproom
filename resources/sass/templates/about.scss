@@ -1,0 +1,11 @@
+#about {
+    .about-img {
+        .about-img-left, .about-img-right {
+            position: relative;
+        }
+        .about-img-right {
+            top: -200px;
+            left: 300px;
+        }
+    }
+}

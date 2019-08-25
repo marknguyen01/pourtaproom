@@ -1,0 +1,60 @@
+#menu {
+    background-color: $bg-accent-color;
+
+    .menu-categories {
+        .menu-category {
+            padding: 0 $base-spacing;
+            cursor: pointer;
+            &.active {
+                font-weight: bold;
+            }
+        }
+    }
+    .menu-items {
+        .menu-item-img {
+            display: inline-block;
+            img {
+                border-radius: 50%;
+                width: 90px;
+                height: 90px;
+                border: 1px solid $content-color;
+                background: $white;
+            }
+        }
+        .menu-item {
+            display: inline-block;
+            width: calc(100% - 96px);
+            margin-left: $base-spacing;
+            .menu-item-header {
+                display: flex;
+                .menu-item-name, .menu-item-abv {
+                    flex: 1 0 auto;
+                }
+                .menu-item-name {
+                    max-width: calc(100% - 96px);
+                }
+                .menu-item-dots {
+                    flex: 0 1 auto;
+                    overflow: hidden;
+                    &:before {
+                        display: block;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: clip;
+                        content:
+                          ". . . . . . . . . . . . . . . . . . . . "
+                          ". . . . . . . . . . . . . . . . . . . . "
+                          ". . . . . . . . . . . . . . . . . . . . "
+                          ". . . . . . . . . . . . . . . . . . . . "
+                    }
+                }
+            }
+        }
+    }
+
+    .menu-loading {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}

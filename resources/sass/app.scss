@@ -1,13 +1,23 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Lora:400,700|Poppins:400,700&display=swap');
 
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
 // Variables
 @import 'variables';
+@import 'mixins';
 @import 'utilities';
 @import 'animations';
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+
+
+// Templates
+@import 'templates/hero';
+@import 'templates/about';
+@import 'templates/video';
+@import 'templates/menu';
+@import 'templates/contact';
 
 html {
     scroll-behavior: smooth;
@@ -33,230 +43,9 @@ a {
         padding-right: ($base-spacing * 12);
     }
 }
-#hero {
-    background-image: $overlay, url('img/hero.png');
-    background-position: bottom center;
-    background-size: cover;
-    height: stretch;
-
-    .container-fluid {
-        padding-top: ($base-spacing * 2);
-        padding-bottom: ($base-spacing * 2);
-        @include media-breakpoint-up(lg) {
-            padding-top: ($base-spacing * 3);
-            padding-bottom: ($base-spacing * 3);
-        }
-        z-index: 2;
-        position: relative;
-    }
-
-    #left-nav {
-        position: fixed;
-        top: $base-spacing * 2;
-        z-index: 2;
-        left: 50%;
-        transform: translateX(-50%);
-        @include media-breakpoint-up(md) {
-            position: unset;
-            top: 0;
-            left: 0;
-            transform: none;
-        }
-        .navbar-toggler {
-            top: 0;
-            left: 10px;
-            z-index: 1;
-            cursor: pointer;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            background-color: $white;
-            .navbar-toggler-icon {
-                background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-            }
-        }
-
-        .navbar-nav {
-            background-color: white;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            margin-top: $base-spacing;
-            padding: $base-spacing;
-            @include media-breakpoint-up(md) {
-                background-color: transparent;
-                margin-top: 0;
-                padding: 0;
-            }
-        }
-
-        .nav-link {
-            color: $content-color;
-            @include media-breakpoint-up(md) {
-                color: $white;
-            }
-        }
-    }
-
-    #right-nav {
-        .nav-link {
-            color: $white;
-        }
-    }
-    .navbar {
-        .nav-item {
-            &:first-of-type {
-                .nav-link {
-                    padding-left: 0;
-                }
-            }
-            &:last-of-type {
-                .nav-link {
-                    padding-right: 0;
-                }
-            }
-            .nav-link {
-                font-family: $font-lora;
-                @include media-breakpoint-up(lg) {
-                    padding: 0 ($base-spacing * 2);
-                }
-            }
-
-            .social-icon {
-                font-size: 36px;
-                line-height: 36px;
-                padding-top: 0;
-                padding-bottom: 0;
-                ion-icon {
-                    vertical-align: top;
-                }
-            }
-        }
-    }
-
-    .hero-content {
-        @include media-breakpoint-up(lg) {
-            max-width: 50vw;
-            margin: 0 auto;
-        }
-    }
-
-    .hero-logo {
-        img {
-            width: 250px * 0.7;
-            height: 160px * 0.7;
-            @include media-breakpoint-up(md) {
-                width: 250px * 0.8;
-                height: 160px * 0.8;
-            }
-            @include media-breakpoint-up(lg) {
-                width: 250px;
-                height: 160px;
-            }
-        }
-    }
-
-    .hero-scroll {
-        font-family: $font-poppins;
-        font-size: $font-rg;
-        position: absolute;
-        bottom: 0;
-        z-index: 3;
-        left: 50%;
-        transform: translateX(-50%);
-        .scroll-line {
-            width: 2px;
-            background-color: $white;
-            position: relative;
-            bottom: 0;
-            display: block;
-            left: 50%;
-            transform: translateX(-50%);
-            animation-duration: 1.5s;
-            animation-iteration-count: infinite;
-            animation-name: movingLine;
-            transition: height 1.5s ease;
-        }
-    }
-}
 
 #about, #menu, #contact {
     min-height: 100vh;
-}
-
-#about {
-    .about-img {
-        .about-img-left, .about-img-right {
-            position: relative;
-        }
-        .about-img-right {
-            top: -200px;
-            left: 300px;
-        }
-    }
-}
-
-#video {
-    min-height: 50vh;
-    background-image: $overlay, url('img/video.png');
-    position: relative;
-}
-
-#menu {
-    background-color: $bg-accent-color;
-
-    .menu-categories {
-        .menu-category {
-            padding: 0 $base-spacing;
-            cursor: pointer;
-            &.active {
-                font-weight: bold;
-            }
-        }
-    }
-    .menu-items {
-        .menu-item-img {
-            display: inline-block;
-            img {
-                border-radius: 50%;
-                width: 90px;
-                height: 90px;
-                border: 1px solid $content-color;
-                background: $white;
-            }
-        }
-        .menu-item {
-            display: inline-block;
-            width: calc(100% - 96px);
-            margin-left: $base-spacing;
-            .menu-item-header {
-                display: flex;
-                .menu-item-name, .menu-item-abv {
-                    flex: 1 0 auto;
-                }
-                .menu-item-name {
-                    max-width: calc(100% - 96px);
-                }
-                .menu-item-dots {
-                    flex: 0 1 auto;
-                    overflow: hidden;
-                    &:before {
-                        display: block;
-                        white-space: nowrap;
-                        overflow: hidden;
-                        text-overflow: clip;
-                        content:
-                          ". . . . . . . . . . . . . . . . . . . . "
-                          ". . . . . . . . . . . . . . . . . . . . "
-                          ". . . . . . . . . . . . . . . . . . . . "
-                          ". . . . . . . . . . . . . . . . . . . . "
-                    }
-                }
-            }
-        }
-    }
-
-    .menu-loading {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-    }
 }
 
 .section {

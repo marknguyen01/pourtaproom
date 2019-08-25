@@ -1,0 +1,85 @@
+#contact {
+    .contact-bg {
+        // background-image: overlay(rgba($color: #2C2C2C, $alpha: 0.8)), url('img/contact.png');
+        // background-size: cover;
+        background-color: #2C2C2C;
+        // background-position: center;
+        // background-repeat: no-repeat;
+    }
+    .contact-form {
+        form {
+            input {
+                border-top: 0;
+                border-right: 0;
+                border-left: 0;
+                border-bottom: 1px solid rgba(255,255,255,0.17);
+                color: $white;
+                box-shadow: none;
+                width: 100%;
+                background: transparent;
+                transition: border-bottom-color 0.5s ease;
+                padding: 12px 0;
+                @extend %font-size--sm;
+                &:focus {
+                    border-bottom-color: $white;
+                    outline: none;
+                }
+                &::placeholder {
+                    color: $white;
+                }
+            }
+        }
+    }
+    .contact-map {
+        min-height: 50vh;
+        height: 100vh;
+        width: 100%;
+        background: $white;
+    }
+    .contact-btn {
+        width: 50%;
+        &:hover {
+            color: #2C2C2C;
+            border-color: $white;
+            background-color: $white;
+        }
+    }
+}
+
+
+.ol-popup {
+    position: absolute;
+    left: 50%;
+    background-color: rgba($color: $white, $alpha: 0.75);
+    transform: translateX(-50%);
+    padding: $base-spacing 0;
+    bottom: 12px;
+}
+.ol-popup:after, .ol-popup:before {
+    top: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+.ol-popup:after {
+    border-top-color: white;
+    border-width: 10px;
+    left: 50%;
+    margin-left: -10px;
+}
+.ol-popup:before {
+    border-top-color: #cccccc;
+    border-width: 11px;
+    left: 50%;
+    margin-left: -11px;
+}
+.ol-popup-closer {
+    text-decoration: none;
+    position: absolute;
+    top: 2px;
+    right: 8px;
+}
+

@@ -1,13 +1,3 @@
-@import 'variables';
-@import 'mixins';
-
-@import '~bootstrap/scss/functions';
-@import '~bootstrap/scss/variables';
-@import '~bootstrap/scss/mixins';
-
-
-
-
 .font-family {
     &--lora {
         @extend %font-family--lora;
@@ -37,7 +27,7 @@
 }
 
 .text-color--white {
-    color: $white;
+    color: $white !important;
 }
 
 .button {
@@ -61,7 +51,7 @@
         border: 2px solid $white;
         background-color: transparent;
         color: $white;
-        transition: background-color 0.75s ease-in, border-color 0.75s ease;
+        transition: background-color 0.75s ease-in, border-color 0.75s ease, color 0.75s ease;
         &:hover {
             border-color: $red;
             background-color: $red;

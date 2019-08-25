@@ -102,11 +102,10 @@
         <section class="section" id="event">
 
         </section>
-        <section class="section" id="contact">
-
+        <section id="contact">
+            @include('templates.contact')
         </section>
         <footer>
-
         </footer>
         <script src="{{ asset('js/app.js') }}" async defer></script>
         <script src="https://unpkg.com/ionicons@4.2.2/dist/ionicons.js"></script>
