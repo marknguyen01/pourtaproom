@@ -15,7 +15,7 @@ html {
 
 body {
     font-family: $font-poppins;
-    font-size: $font-rg;
+    @extend %font-size--rg;
 }
 
 a {
@@ -264,7 +264,7 @@ a {
     text-align: center;
     .title {
         font-family: $font-lora;
-        @extend .font-size--lg;
+        @extend %font-size--lg;
         color: $red;
         font-weight: bold;
         line-height: $font-lg - 16px;
@@ -275,7 +275,7 @@ a {
     }
     .sub-title {
         font-family: $font-lora;
-        @extend .font-size--md;
+        @extend %font-size--md;
         line-height: $font-md - 6px;
         @include media-breakpoint-up(lg) {
             line-height: $font-md;

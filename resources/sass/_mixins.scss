@@ -1,0 +1,45 @@
+@import 'variables';
+
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+
+%font-size {
+    &--sm {
+        font-size: $font-sm;
+    }
+    &--rg {
+        font-size: $font-rg - 6px !important;
+        @include media-breakpoint-up(lg) {
+            font-size: $font-rg !important;
+        }
+    }
+    &--md {
+        font-size: $font-md - 6px;
+        @include media-breakpoint-up(lg) {
+            font-size: $font-md;
+        }
+    }
+    &--lg {
+        font-size: $font-lg - 16px;
+        @include media-breakpoint-up(lg) {
+            font-size: $font-lg;
+        }
+    }
+    &--xl {
+        font-size: $font-xl - 30px;
+        @include media-breakpoint-up(lg) {
+            font-size: $font-xl;
+        }
+    }
+}
+
+
+%font-family {
+    &--lora {
+        font-family: $font-lora;
+    }
+    &--poppins {
+        font-family: $font-poppins;
+    }
+}

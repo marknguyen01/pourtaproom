@@ -1,4 +1,5 @@
 @import 'variables';
+@import 'mixins';
 
 @import '~bootstrap/scss/functions';
 @import '~bootstrap/scss/variables';
@@ -6,42 +7,32 @@
 
 
 
+
 .font-family {
     &--lora {
-        font-family: $font-lora;
+        @extend %font-family--lora;
     }
     &--poppins {
-        font-family: $font-poppins;
+        @extend %font-family--poppins;
     }
 }
 
+
 .font-size {
     &--sm {
-        font-size: $font-sm;
+        @extend %font-size--sm;
     }
     &--rg {
-        font-size: $font-rg - 6px;
-        @include media-breakpoint-up(lg) {
-            font-size: $font-rg;
-        }
+        @extend %font-size--rg;
     }
     &--md {
-        font-size: $font-md - 6px;
-        @include media-breakpoint-up(lg) {
-            font-size: $font-md;
-        }
+        @extend %font-size--md;
     }
     &--lg {
-        font-size: $font-lg - 16px;
-        @include media-breakpoint-up(lg) {
-            font-size: $font-lg;
-        }
+        @extend %font-size--lg;
     }
     &--xl {
-        font-size: $font-xl - 30px;
-        @include media-breakpoint-up(lg) {
-            font-size: $font-xl;
-        }
+        @extend %font-size--xl;
     }
 }
 

@@ -1,47 +1,41 @@
 @import url(https://fonts.googleapis.com/css?family=Lora:400,700|Poppins:400,700&display=swap);@charset "UTF-8";
 
-.font-family--lora {
-  font-family: "Lora", serif;
-}
-
-.font-family--poppins {
-  font-family: "Poppins", sans-serif;
-}
-
 .font-size--sm {
   font-size: 14px;
 }
 
+body,
 .font-size--rg {
-  font-size: 16px;
+  font-size: 16px !important;
 }
 
 @media (min-width: 992px) {
+  body,
   .font-size--rg {
-    font-size: 22px;
+    font-size: 22px !important;
   }
 }
 
-.font-size--md,
-.title-block .sub-title {
+.title-block .sub-title,
+.font-size--md {
   font-size: 20px;
 }
 
 @media (min-width: 992px) {
-  .font-size--md,
-  .title-block .sub-title {
+  .title-block .sub-title,
+  .font-size--md {
     font-size: 26px;
   }
 }
 
-.font-size--lg,
-.title-block .title {
+.title-block .title,
+.font-size--lg {
   font-size: 26px;
 }
 
 @media (min-width: 992px) {
-  .font-size--lg,
-  .title-block .title {
+  .title-block .title,
+  .font-size--lg {
     font-size: 42px;
   }
 }
@@ -54,6 +48,14 @@
   .font-size--xl {
     font-size: 60px;
   }
+}
+
+.font-family--lora {
+  font-family: "Lora", serif;
+}
+
+.font-family--poppins {
+  font-family: "Poppins", sans-serif;
 }
 
 .text-color--white {
@@ -7354,6 +7356,22 @@ button.bg-dark:focus {
   padding-top: 100%;
 }
 
+.embed-responsive-21by9::before {
+  padding-top: 42.8571428571%;
+}
+
+.embed-responsive-16by9::before {
+  padding-top: 56.25%;
+}
+
+.embed-responsive-4by3::before {
+  padding-top: 75%;
+}
+
+.embed-responsive-1by1::before {
+  padding-top: 100%;
+}
+
 .flex-row {
   flex-direction: row !important;
 }
@@ -10796,7 +10814,6 @@ html {
 
 body {
   font-family: "Poppins", sans-serif;
-  font-size: 22px;
 }
 
 a:hover {
