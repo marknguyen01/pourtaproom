@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 <div class="dots-grey"></div>
-                <div class="about-text-block text-center">
+                <div class="about-text-block text-center mt-3 mt-md-4 mt-lg-5">
                     Pour Taproom Charlotte is a family owned business, located in the heart of Plaza Midwood.
                     We are the largest self pour taproom in the United States.
                     Sticking to our Carolina's roots, we feature a wide selection of rotating curated local and reginal beers, as well as continuously branch outing giving you the opportunity to taste beers, wines, and ciders from all over the world.

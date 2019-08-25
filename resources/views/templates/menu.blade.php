@@ -8,7 +8,5 @@
         </div>
     </div>
     <div class="dots-grey"></div>
-    <div id="menu-app">
-        <menu-component :category-data="{{ json_encode($categories) }}" :item-data="{{ json_encode($items) }}"></menu-component>
-    </div>
+    <menu-component :category-data="{{ json_encode($categories) }}" :item-data="{{ json_encode($items) }}"></menu-component>
 </div>

@@ -36,7 +36,7 @@
 
 .font-size--lg,
 .title-block .title {
-  font-size: 22px;
+  font-size: 26px;
 }
 
 @media (min-width: 992px) {
@@ -11072,11 +11072,27 @@ a:hover {
   font-family: "Lora", serif;
   color: #B10000;
   font-weight: bold;
+  line-height: 26px;
+  padding: 12px 0;
+}
+
+@media (min-width: 992px) {
+  .title-block .title {
+    line-height: 42px;
+  }
 }
 
 .title-block .sub-title {
   font-family: "Lora", serif;
+  line-height: 20px;
+  padding-bottom: 12px;
   color: #484E51;
+}
+
+@media (min-width: 992px) {
+  .title-block .sub-title {
+    line-height: 26px;
+  }
 }
 
 .dots-grey {

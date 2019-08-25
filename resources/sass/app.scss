@@ -267,10 +267,20 @@ a {
         @extend .font-size--lg;
         color: $red;
         font-weight: bold;
+        line-height: $font-lg - 16px;
+        @include media-breakpoint-up(lg) {
+            line-height: $font-lg;
+        }
+        padding: $base-spacing 0;
     }
     .sub-title {
         font-family: $font-lora;
         @extend .font-size--md;
+        line-height: $font-md - 6px;
+        @include media-breakpoint-up(lg) {
+            line-height: $font-md;
+        }
+        padding-bottom: $base-spacing;
         color: $subtitle-color;
     }
 }

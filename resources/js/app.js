@@ -33,5 +33,5 @@ Vue.use(BootstrapVue);
  */
 
 const app = new Vue({
-    el: '#menu-app',
+    el: '#menu',
 });

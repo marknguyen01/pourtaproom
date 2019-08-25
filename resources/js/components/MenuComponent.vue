@@ -1,5 +1,5 @@
 <template>
-    <div class="menu-content">
+    <div class="menu-content mt-3 mt-md-4 mt-lg-5">
         <div class="menu-categories text-center">
             <span v-for="category in categories" v-bind:key="category.id" v-on:click="changeCategory(category.id)" class="menu-category font-size--rg" v-bind:class="{active : (active_category == category.id)}">{{ category.name }}</span>
         </div>

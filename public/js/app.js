@@ -65850,7 +65850,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "menu-content" }, [
+  return _c("div", { staticClass: "menu-content mt-3 mt-md-4 mt-lg-5" }, [
     _c(
       "div",
       { staticClass: "menu-categories text-center" },
@@ -78130,7 +78130,7 @@ Vue.use(bootstrap_vue__WEBPACK_IMPORTED_MODULE_0__["default"]);
  */
 
 var app = new Vue({
-  el: '#menu-app'
+  el: '#menu'
 });
 
 /***/ }),
