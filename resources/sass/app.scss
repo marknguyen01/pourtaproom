@@ -254,6 +254,12 @@ a {
             }
         }
     }
+
+    .menu-loading {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }
 
 .section {
@@ -293,3 +299,18 @@ a {
 .dots-white {
     @include create-dots($white)
 }
+
+.fade-out-in-enter-active,
+.fade-out-in-leave-active {
+  transition: opacity .5s;
+}
+
+.fade-out-in-enter-active {
+  transition-delay: .5s;
+}
+
+.fade-out-in-enter,
+.fade-out-in-leave-to {
+  opacity: 0;
+}
+

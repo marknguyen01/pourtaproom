@@ -58,6 +58,18 @@ body,
   font-family: "Poppins", sans-serif;
 }
 
+#video:after,
+#hero:after {
+  content: " ";
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
 .text-color--white {
   color: #ffffff;
 }
@@ -98,16 +110,106 @@ body,
   background-color: #B10000;
 }
 
-#video:after,
-#hero:after {
-  content: " ";
-  background-color: rgba(0, 0, 0, 0.5);
-  width: 100%;
-  height: 100%;
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+
+.lds-ellipsis div {
   position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
+  top: 27px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #5C5C5D;
+  -webkit-animation-timing-function: cubic-bezier(0, 1, 1, 0);
+          animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+.lds-ellipsis div:nth-child(1) {
+  left: 6px;
+  -webkit-animation: lds-ellipsis1 0.6s infinite;
+          animation: lds-ellipsis1 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(2) {
+  left: 6px;
+  -webkit-animation: lds-ellipsis2 0.6s infinite;
+          animation: lds-ellipsis2 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(3) {
+  left: 26px;
+  -webkit-animation: lds-ellipsis2 0.6s infinite;
+          animation: lds-ellipsis2 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(4) {
+  left: 45px;
+  -webkit-animation: lds-ellipsis3 0.6s infinite;
+          animation: lds-ellipsis3 0.6s infinite;
+}
+
+@-webkit-keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@-webkit-keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
+
+@-webkit-keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(19px, 0);
+  }
+}
+
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(19px, 0);
+  }
 }
 
 @-webkit-keyframes movingLine {
@@ -11076,6 +11178,12 @@ a:hover {
   content: ". . . . . . . . . . . . . . . . . . . . " ". . . . . . . . . . . . . . . . . . . . " ". . . . . . . . . . . . . . . . . . . . " ". . . . . . . . . . . . . . . . . . . . ";
 }
 
+#menu .menu-loading {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .section {
   padding-top: 10vh;
   padding-bottom: 10vh;
@@ -11130,5 +11238,19 @@ a:hover {
   background-size: 12px 12px;
   background-position: center;
   background-repeat: repeat-x;
+}
+
+.fade-out-in-enter-active,
+.fade-out-in-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-out-in-enter-active {
+  transition-delay: 0.5s;
+}
+
+.fade-out-in-enter,
+.fade-out-in-leave-to {
+  opacity: 0;
 }
 

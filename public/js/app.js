@@ -1869,6 +1869,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['categoryData', 'itemData'],
@@ -1876,18 +1879,20 @@ __webpack_require__.r(__webpack_exports__);
     return {
       categories: JSON.parse(this.categoryData).sections,
       items: JSON.parse(this.itemData).items,
-      active_category: JSON.parse(this.categoryData).sections[0].id
+      active_category: JSON.parse(this.categoryData).sections[0].id,
+      loading: false
     };
   },
   methods: {
     changeCategory: function changeCategory(categoryID) {
       var _this = this;
 
-      console.log(categoryID);
+      this.loading = true;
+      this.items = null;
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/menu/" + categoryID).then(function (res) {
         _this.items = JSON.parse(res.data).items;
         _this.active_category = categoryID;
-        console.log(JSON.parse(res.data).items);
+        _this.loading = false;
       });
     }
   }
@@ -65873,83 +65878,108 @@ var render = function() {
       0
     ),
     _vm._v(" "),
-    _c("div", { staticClass: "menu-items mt-5" }, [
-      _c(
-        "div",
-        { staticClass: "row" },
-        _vm._l(_vm.items, function(item) {
-          return _c("div", { key: item.id, staticClass: "col-lg-6" }, [
-            _c("div", { staticClass: "d-flex" }, [
-              _c(
-                "div",
-                {
-                  directives: [
-                    {
-                      name: "b-popover",
-                      rawName: "v-b-popover.top.hover",
-                      value:
-                        item.description != undefined &&
-                        item.description.length > 0
-                          ? item.description
-                          : "No description",
-                      expression:
-                        "item.description != undefined && item.description.length > 0 ? item.description : 'No description'",
-                      modifiers: { top: true, hover: true }
-                    }
-                  ],
-                  staticClass: "menu-item-img my-3"
-                },
-                [
-                  _c("img", {
-                    attrs: { src: item.label_image, alt: item.name }
-                  })
-                ]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "menu-item align-self-center" }, [
-                _c("div", { staticClass: "menu-item-header" }, [
-                  _c(
-                    "span",
-                    {
-                      staticClass:
-                        "menu-item-name font-weight-bold font-size--rg"
-                    },
-                    [_vm._v(_vm._s(item.tap_number) + ". " + _vm._s(item.name))]
-                  ),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "menu-item-dots" }),
-                  _vm._v(" "),
-                  _c(
-                    "span",
-                    {
-                      staticClass:
-                        "menu-item-abv font-weight-bold font-size--rg"
-                    },
-                    [_vm._v(_vm._s(item.abv) + "% ABV")]
-                  )
-                ]),
+    _vm.loading
+      ? _c("div", { staticClass: "text-center mt-5 menu-loading" }, [_vm._m(0)])
+      : _vm._e(),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "menu-items mt-5" },
+      [
+        _c(
+          "transition-group",
+          { staticClass: "row", attrs: { tag: "div", name: "fade-out-in" } },
+          _vm._l(_vm.items, function(item) {
+            return _c("div", { key: item.id, staticClass: "col-lg-6" }, [
+              _c("div", { staticClass: "d-flex" }, [
+                _c(
+                  "div",
+                  {
+                    directives: [
+                      {
+                        name: "b-popover",
+                        rawName: "v-b-popover.top.hover",
+                        value:
+                          item.description != undefined &&
+                          item.description.length > 0
+                            ? item.description
+                            : "No description",
+                        expression:
+                          "item.description != undefined && item.description.length > 0 ? item.description : 'No description'",
+                        modifiers: { top: true, hover: true }
+                      }
+                    ],
+                    staticClass: "menu-item-img my-3"
+                  },
+                  [
+                    _c("img", {
+                      attrs: { src: item.label_image, alt: item.name }
+                    })
+                  ]
+                ),
                 _vm._v(" "),
-                _c("div", { staticClass: "menu-item-desc font-size--rg" }, [
-                  _vm._v(
-                    "\n                            " +
-                      _vm._s(item.brewery) +
-                      " | " +
-                      _vm._s(item.style) +
-                      " | " +
-                      _vm._s(item.ibu) +
-                      " IBU\n                        "
-                  )
+                _c("div", { staticClass: "menu-item align-self-center" }, [
+                  _c("div", { staticClass: "menu-item-header" }, [
+                    _c(
+                      "span",
+                      {
+                        staticClass:
+                          "menu-item-name font-weight-bold font-size--rg"
+                      },
+                      [
+                        _vm._v(
+                          _vm._s(item.tap_number) + ". " + _vm._s(item.name)
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "menu-item-dots" }),
+                    _vm._v(" "),
+                    _c(
+                      "span",
+                      {
+                        staticClass:
+                          "menu-item-abv font-weight-bold font-size--rg"
+                      },
+                      [_vm._v(_vm._s(item.abv) + "% ABV")]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "menu-item-desc font-size--rg" }, [
+                    _vm._v(
+                      "\n                                " +
+                        _vm._s(item.brewery) +
+                        " | " +
+                        _vm._s(item.style) +
+                        " | " +
+                        _vm._s(item.ibu) +
+                        " IBU\n                            "
+                    )
+                  ])
                 ])
               ])
             ])
-          ])
-        }),
-        0
-      )
-    ])
+          }),
+          0
+        )
+      ],
+      1
+    )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "lds-ellipsis" }, [
+      _c("div"),
+      _c("div"),
+      _c("div"),
+      _c("div")
+    ])
+  }
+]
 render._withStripped = true
 
 
