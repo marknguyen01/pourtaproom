@@ -47348,7 +47348,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var overlay = new ol_Overlay_js__WEBPACK_IMPORTED_MODULE_3__["default"]({
-  element: document.getElementById('popup')
+  element: document.getElementById('popup'),
+  autoPan: true
 });
 var map = new ol_Map__WEBPACK_IMPORTED_MODULE_1__["default"]({
   target: 'map',

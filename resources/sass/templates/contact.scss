@@ -7,6 +7,10 @@
         // background-repeat: no-repeat;
     }
     .contact-form {
+        min-height: 100vh;
+        .form-group {
+            margin-bottom: $base-spacing * 2;
+        }
         form {
             input {
                 border-top: 0;
@@ -37,7 +41,10 @@
         background: $white;
     }
     .contact-btn {
-        width: 50%;
+        width: 100%;
+        @include media-breakpoint-up(lg) {
+            width: 50%;
+        }
         &:hover {
             color: #2C2C2C;
             border-color: $white;
@@ -54,6 +61,7 @@
     transform: translateX(-50%);
     padding: $base-spacing 0;
     bottom: 12px;
+    border: 2px solid #2C2C2C;
 }
 .ol-popup:after, .ol-popup:before {
     top: 100%;
@@ -65,21 +73,8 @@
     pointer-events: none;
 }
 .ol-popup:after {
-    border-top-color: white;
-    border-width: 10px;
+    border-top-color: #2C2C2C;
+    border-width: 16px;
     left: 50%;
-    margin-left: -10px;
+    margin-left: -16px;
 }
-.ol-popup:before {
-    border-top-color: #cccccc;
-    border-width: 11px;
-    left: 50%;
-    margin-left: -11px;
-}
-.ol-popup-closer {
-    text-decoration: none;
-    position: absolute;
-    top: 2px;
-    right: 8px;
-}
-

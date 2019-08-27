@@ -79,7 +79,7 @@
                         <a class="button button--transparent-white font-size--rg" href="/#menu">
                             Show Menu
                         </a>
-                        <a class="button button--transparent-white font-size--rg" href="/#event">
+                        <a class="button button--transparent-white font-size--rg" href="/#contact">
                             Book Event
                         </a>
                     </div>

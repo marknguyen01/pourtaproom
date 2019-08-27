@@ -8,7 +8,8 @@ import OSM from 'ol/source/OSM';
 
 
 const overlay = new Overlay({
-    element: document.getElementById('popup')
+    element: document.getElementById('popup'),
+    autoPan: true,
 })
 
 

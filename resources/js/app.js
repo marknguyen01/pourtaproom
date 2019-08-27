@@ -23,6 +23,7 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 Vue.component('menu-component', require('./components/MenuComponent.vue').default);
+Vue.component('contact-form-component', require('./components/ContactFormComponent.vue').default);
 
 Vue.use(BootstrapVue);
 
@@ -32,6 +33,19 @@ Vue.use(BootstrapVue);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
+const menuApp = new Vue({
     el: '#menu',
 });
+
+const contactApp = new Vue({
+    el: '#contact-form',
+})
+
+window.addEventListener('ready', () => {
+    screen.orientation.lock('portrait').then(() => {
+        fullscreen.exit();
+    }).catch((err) => {
+        console.log(err);
+    })
+});
+

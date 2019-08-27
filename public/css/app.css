@@ -10709,18 +10709,10 @@ body,
 
 .button {
   padding: 12px 0;
-  width: 160px;
   margin: 0;
-  border-radius: 30px;
   display: inline-block;
   cursor: pointer;
-}
-
-@media (min-width: 992px) {
-  .button {
-    width: 240px;
-    margin: 0 36px;
-  }
+  transition: background-color 0.75s ease-in, border-color 0.75s ease, color 0.75s ease;
 }
 
 .button:first-of-type {
@@ -10735,12 +10727,33 @@ body,
   border: 2px solid #ffffff;
   background-color: transparent;
   color: #ffffff;
-  transition: background-color 0.75s ease-in, border-color 0.75s ease, color 0.75s ease;
+  width: 160px;
+  border-radius: 30px;
+}
+
+@media (min-width: 992px) {
+  .button--transparent-white {
+    width: 240px;
+    margin: 0 36px;
+  }
 }
 
 .button--transparent-white:hover {
+  color: #ffffff;
   border-color: #B10000;
   background-color: #B10000;
+}
+
+.button--transparent-grey {
+  border: 2px solid #5C5C5D;
+  background-color: transparent;
+  color: #5C5C5D;
+  width: 100%;
+}
+
+.button--transparent-grey:hover {
+  border-color: #B10000;
+  color: #B10000 !important;
 }
 
 .lds-ellipsis {
@@ -11117,6 +11130,14 @@ body,
   background-color: #2C2C2C;
 }
 
+#contact .contact-form {
+  min-height: 100vh;
+}
+
+#contact .contact-form .form-group {
+  margin-bottom: 24px;
+}
+
 #contact .contact-form form input {
   border-top: 0;
   border-right: 0;
@@ -11163,7 +11184,13 @@ body,
 }
 
 #contact .contact-btn {
-  width: 50%;
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  #contact .contact-btn {
+    width: 50%;
+  }
 }
 
 #contact .contact-btn:hover {
@@ -11179,6 +11206,7 @@ body,
   transform: translateX(-50%);
   padding: 12px 0;
   bottom: 12px;
+  border: 2px solid #2C2C2C;
 }
 
 .ol-popup:after,
@@ -11193,24 +11221,10 @@ body,
 }
 
 .ol-popup:after {
-  border-top-color: white;
-  border-width: 10px;
+  border-top-color: #2C2C2C;
+  border-width: 16px;
   left: 50%;
-  margin-left: -10px;
-}
-
-.ol-popup:before {
-  border-top-color: #cccccc;
-  border-width: 11px;
-  left: 50%;
-  margin-left: -11px;
-}
-
-.ol-popup-closer {
-  text-decoration: none;
-  position: absolute;
-  top: 2px;
-  right: 8px;
+  margin-left: -16px;
 }
 
 html {
@@ -11221,9 +11235,13 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+a {
+  color: #5C5C5D;
+}
+
 a:hover {
   text-decoration: none;
-  color: #ffffff;
+  color: #B10000;
 }
 
 .container-fluid {

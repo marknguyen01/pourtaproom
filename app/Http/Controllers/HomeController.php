@@ -27,4 +27,8 @@ class HomeController extends Controller
         }
         else return error(404);
     }
+
+    public function createReservation() {
+
+    }
 }

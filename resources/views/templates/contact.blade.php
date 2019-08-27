@@ -10,44 +10,9 @@
                 </div>
             </div>
             <div class="dots-white"></div>
-            <form method="POST" action="{{ route('contact') }}" class="mt-3 mt-md-4 mt-lg-5">
-                <div class="form-row">
-                    <div class="form-group col-6">
-                        <input type="text" placeholder="First Name" name="first_name" required>
-                    </div>
-                    <div class="form-group col-6">
-                        <input type="text" placeholder="Last Name" name="last_name" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-6">
-                        <input type="tel" placeholder="Phone Number" name="phone_number" required>
-                    </div>
-                    <div class="form-group col-6">
-                        <input type="email" placeholder="Email Address" name="email" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-6">
-                        <input type="text" placeholder="Company Name (not required)" name="company">
-                    </div>
-                    <div class="form-group col-6">
-                        <input type="text" placeholder="Event Type" name="event" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-6">
-                        <input type="datetime-local" placeholder="Date and Time" name="date_time" required>
-                    </div>
-                    <div class="form-group col-6">
-                        <input type="number" placeholder="Estimated number of people" name="num_people" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <input type="text" placeholder="Catering Needs (not required)" name="catering">
-                </div>
-                <button type="submit" class="contact-btn button button--transparent-white mt-3">Book an Event</button>
-            </form>
+            <div id="contact-form">
+                <contact-form-component route-data="{{ route('contact') }}"></contact-form-component>
+            </div>
         </div>
     </div>
     <div class="col-lg-5">
@@ -74,6 +39,10 @@
                             <p>1212 Central Avenue, Charlotte NC 28204</p>
                             <p><a href="tel:(980)-299-8866">(980)-299-8866</a></p>
                         </div>
+                    </div>
+                    <div class="col-12">
+                        <a class="button button--transparent-grey mt-3 text-center" href="http://maps.apple.com/?daddr={{ urlencode('1212 Central Avenue, Charlotte NC 28204') }}">
+                            GET DIRECTIONS</a>
                     </div>
                 </div>
             </div>
