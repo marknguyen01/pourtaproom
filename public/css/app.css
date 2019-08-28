@@ -10645,6 +10645,7 @@ a.text-dark:focus {
 }
 
 #contact .contact-form form input,
+#contact .contact-form form textarea,
 .font-size--sm {
   font-size: 16px;
 }
@@ -10759,8 +10760,8 @@ body,
 .lds-ellipsis {
   display: inline-block;
   position: relative;
-  width: 64px;
-  height: 64px;
+  top: -38px;
+  left: -26px;
 }
 
 .lds-ellipsis div {
@@ -11138,7 +11139,8 @@ body,
   margin-bottom: 24px;
 }
 
-#contact .contact-form form input {
+#contact .contact-form form input,
+#contact .contact-form form textarea {
   border-top: 0;
   border-right: 0;
   border-left: 0;
@@ -11151,29 +11153,39 @@ body,
   padding: 12px 0;
 }
 
-#contact .contact-form form input:focus {
+#contact .contact-form form input:focus,
+#contact .contact-form form textarea:focus {
   border-bottom-color: #ffffff;
   outline: none;
 }
 
-#contact .contact-form form input::-webkit-input-placeholder {
+#contact .contact-form form input::-webkit-input-placeholder,
+#contact .contact-form form textarea::-webkit-input-placeholder {
   color: #ffffff;
 }
 
-#contact .contact-form form input::-moz-placeholder {
+#contact .contact-form form input::-moz-placeholder,
+#contact .contact-form form textarea::-moz-placeholder {
   color: #ffffff;
 }
 
-#contact .contact-form form input:-ms-input-placeholder {
+#contact .contact-form form input:-ms-input-placeholder,
+#contact .contact-form form textarea:-ms-input-placeholder {
   color: #ffffff;
 }
 
-#contact .contact-form form input::-ms-input-placeholder {
+#contact .contact-form form input::-ms-input-placeholder,
+#contact .contact-form form textarea::-ms-input-placeholder {
   color: #ffffff;
 }
 
-#contact .contact-form form input::placeholder {
+#contact .contact-form form input::placeholder,
+#contact .contact-form form textarea::placeholder {
   color: #ffffff;
+}
+
+#contact .contact-form form textarea {
+  resize: none;
 }
 
 #contact .contact-map {

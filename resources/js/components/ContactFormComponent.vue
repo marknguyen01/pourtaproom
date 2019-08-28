@@ -34,9 +34,20 @@
             </div>
         </div>
         <div class="form-group">
-            <input type="text" placeholder="Catering Needs (not required)" name="catering" v-model="catering">
+            <textarea placeholder="Catering Needs (not required)" name="catering" v-model="catering"></textarea>
         </div>
-        <button type="submit" class="contact-btn button button--transparent-white mt-3">Book an Event</button>
+        <button type="submit" class="contact-btn button button--transparent-white mt-3">
+            <div class="lds-ellipsis" v-if="loading"><div></div><div></div><div></div><div></div></div>
+            <span v-if="!loading">Book an Event</span>
+        </button>
+        <b-modal id="modalPopover" v-bind:title="errors && errors.length > 0 ? 'Please correct the following errors' : 'Reservation has been submited'" ok-only centered>
+            <div v-if="errors && errors.length > 0">
+                <p v-for="(error, index) in errors" :key="`error-${index}`">{{ error }}</p>
+            </div>
+            <div v-else>
+                <p>Please allow at least 24 hours for your reservation confirmation</p>
+            </div>
+        </b-modal>
     </form>
 </template>
 
@@ -51,6 +62,7 @@
         },
         data() {
             return {
+                route: this.routeData,
                 first_name: null,
                 last_name: null,
                 phone_number: null,
@@ -67,6 +79,8 @@
         methods: {
             contact: function(event) {
                 event.preventDefault();
+                this.loading = true;
+                let that = this;
                 let payload = {
                     first_name: this.first_name,
                     last_name: this.last_name,
@@ -78,11 +92,17 @@
                     num_people: this.num_people,
                     catering: this.catering,
                 };
-                console.log(payload);
-                axios.post(this.route, payload).then((res) => {
-                    console.log(res);
-                }).catch((err) => {
-
+                let axiosConfig = {
+                    headers: {
+                        'Content-Type': 'application/json;charset=UTF-8',
+                    }
+                };
+                axios.post(this.route, payload, axiosConfig).then(function(res) {
+                    that.loading = false;
+                }).catch(function(err) {
+                    that.errors = err.response.data.message;
+                    that.$bvModal.show('modalPopover')
+                    that.loading = false;
                 });
             }
         },

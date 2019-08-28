@@ -1886,6 +1886,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -1896,6 +1907,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      route: this.routeData,
       first_name: null,
       last_name: null,
       phone_number: null,
@@ -1912,6 +1924,8 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     contact: function contact(event) {
       event.preventDefault();
+      this.loading = true;
+      var that = this;
       var payload = {
         first_name: this.first_name,
         last_name: this.last_name,
@@ -1923,10 +1937,18 @@ __webpack_require__.r(__webpack_exports__);
         num_people: this.num_people,
         catering: this.catering
       };
-      console.log(payload);
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(this.route, payload).then(function (res) {
-        console.log(res);
-      })["catch"](function (err) {});
+      var axiosConfig = {
+        headers: {
+          'Content-Type': 'application/json;charset=UTF-8'
+        }
+      };
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(this.route, payload, axiosConfig).then(function (res) {
+        that.loading = false;
+      })["catch"](function (err) {
+        that.errors = err.response.data.message;
+        that.$bvModal.show('modalPopover');
+        that.loading = false;
+      });
     }
   }
 });
@@ -22472,7 +22494,7 @@ var VBTooltip = {
 /*!*************************************************!*\
   !*** ./node_modules/bootstrap-vue/esm/index.js ***!
   \*************************************************/
-/*! exports provided: install, NAME, BVConfigPlugin, BVConfig, BootstrapVue, default, componentsPlugin, BVModalPlugin, BVToastPlugin, AlertPlugin, BAlert, BadgePlugin, BBadge, BreadcrumbPlugin, BBreadcrumb, BBreadcrumbItem, ButtonPlugin, BButton, BButtonClose, ButtonGroupPlugin, BButtonGroup, ButtonToolbarPlugin, BButtonToolbar, CardPlugin, BCard, BCardBody, BCardFooter, BCardGroup, BCardHeader, BCardImg, BCardImgLazy, BCardSubTitle, BCardText, BCardTitle, CarouselPlugin, BCarousel, BCarouselSlide, CollapsePlugin, BCollapse, DropdownPlugin, BDropdown, BDropdownItem, BDropdownItemButton, BDropdownDivider, BDropdownForm, BDropdownGroup, BDropdownHeader, BDropdownText, EmbedPlugin, BEmbed, FormPlugin, BForm, BFormDatalist, BFormText, BFormInvalidFeedback, BFormValidFeedback, FormCheckboxPlugin, BFormCheckbox, BFormCheckboxGroup, FormFilePlugin, BFormFile, FormGroupPlugin, BFormGroup, FormInputPlugin, BFormInput, FormRadioPlugin, BFormRadio, BFormRadioGroup, FormSelectPlugin, BFormSelect, FormTextareaPlugin, BFormTextarea, ImagePlugin, BImg, BImgLazy, InputGroupPlugin, BInputGroup, BInputGroupAddon, BInputGroupAppend, BInputGroupPrepend, BInputGroupText, JumbotronPlugin, BJumbotron, LayoutPlugin, BContainer, BRow, BCol, BFormRow, LinkPlugin, BLink, ListGroupPlugin, BListGroup, BListGroupItem, MediaPlugin, BMedia, BMediaAside, BMediaBody, ModalPlugin, BModal, NavPlugin, BNav, BNavForm, BNavItem, BNavItemDropdown, BNavText, NavbarPlugin, BNavbar, BNavbarBrand, BNavbarNav, BNavbarToggle, PaginationPlugin, BPagination, PaginationNavPlugin, BPaginationNav, PopoverPlugin, BPopover, ProgressPlugin, BProgress, BProgressBar, SpinnerPlugin, BSpinner, TablePlugin, TableLitePlugin, TableSimplePlugin, BTable, BTableLite, BTableSimple, BTbody, BThead, BTfoot, BTr, BTh, BTd, TabsPlugin, BTabs, BTab, ToastPlugin, BToast, BToaster, TooltipPlugin, BTooltip, directivesPlugin, VBModalPlugin, VBModal, VBPopoverPlugin, VBPopover, VBScrollspyPlugin, VBScrollspy, VBTogglePlugin, VBToggle, VBTooltipPlugin, VBTooltip */
+/*! exports provided: componentsPlugin, BVModalPlugin, BVToastPlugin, AlertPlugin, BAlert, BadgePlugin, BBadge, BreadcrumbPlugin, BBreadcrumb, BBreadcrumbItem, ButtonPlugin, BButton, BButtonClose, ButtonGroupPlugin, BButtonGroup, ButtonToolbarPlugin, BButtonToolbar, CardPlugin, BCard, BCardBody, BCardFooter, BCardGroup, BCardHeader, BCardImg, BCardImgLazy, BCardSubTitle, BCardText, BCardTitle, CarouselPlugin, BCarousel, BCarouselSlide, CollapsePlugin, BCollapse, DropdownPlugin, BDropdown, BDropdownItem, BDropdownItemButton, BDropdownDivider, BDropdownForm, BDropdownGroup, BDropdownHeader, BDropdownText, EmbedPlugin, BEmbed, FormPlugin, BForm, BFormDatalist, BFormText, BFormInvalidFeedback, BFormValidFeedback, FormCheckboxPlugin, BFormCheckbox, BFormCheckboxGroup, FormFilePlugin, BFormFile, FormGroupPlugin, BFormGroup, FormInputPlugin, BFormInput, FormRadioPlugin, BFormRadio, BFormRadioGroup, FormSelectPlugin, BFormSelect, FormTextareaPlugin, BFormTextarea, ImagePlugin, BImg, BImgLazy, InputGroupPlugin, BInputGroup, BInputGroupAddon, BInputGroupAppend, BInputGroupPrepend, BInputGroupText, JumbotronPlugin, BJumbotron, LayoutPlugin, BContainer, BRow, BCol, BFormRow, LinkPlugin, BLink, ListGroupPlugin, BListGroup, BListGroupItem, MediaPlugin, BMedia, BMediaAside, BMediaBody, ModalPlugin, BModal, NavPlugin, BNav, BNavForm, BNavItem, BNavItemDropdown, BNavText, NavbarPlugin, BNavbar, BNavbarBrand, BNavbarNav, BNavbarToggle, PaginationPlugin, BPagination, PaginationNavPlugin, BPaginationNav, PopoverPlugin, BPopover, ProgressPlugin, BProgress, BProgressBar, SpinnerPlugin, BSpinner, TablePlugin, TableLitePlugin, TableSimplePlugin, BTable, BTableLite, BTableSimple, BTbody, BThead, BTfoot, BTr, BTh, BTd, TabsPlugin, BTabs, BTab, ToastPlugin, BToast, BToaster, TooltipPlugin, BTooltip, directivesPlugin, VBModalPlugin, VBModal, VBPopoverPlugin, VBPopover, VBScrollspyPlugin, VBScrollspy, VBTogglePlugin, VBToggle, VBTooltipPlugin, VBTooltip, install, NAME, BVConfigPlugin, BVConfig, BootstrapVue, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -75855,7 +75877,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "form-group" }, [
-        _c("input", {
+        _c("textarea", {
           directives: [
             {
               name: "model",
@@ -75865,7 +75887,6 @@ var render = function() {
             }
           ],
           attrs: {
-            type: "text",
             placeholder: "Catering Needs (not required)",
             name: "catering"
           },
@@ -75887,9 +75908,55 @@ var render = function() {
           staticClass: "contact-btn button button--transparent-white mt-3",
           attrs: { type: "submit" }
         },
-        [_vm._v("Book an Event")]
+        [
+          _vm.loading
+            ? _c("div", { staticClass: "lds-ellipsis" }, [
+                _c("div"),
+                _c("div"),
+                _c("div"),
+                _c("div")
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          !_vm.loading ? _c("span", [_vm._v("Book an Event")]) : _vm._e()
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "b-modal",
+        {
+          attrs: {
+            id: "modalPopover",
+            title:
+              _vm.errors && _vm.errors.length > 0
+                ? "Please correct the following errors"
+                : "Reservation has been submited",
+            "ok-only": "",
+            centered: ""
+          }
+        },
+        [
+          _vm.errors && _vm.errors.length > 0
+            ? _c(
+                "div",
+                _vm._l(_vm.errors, function(error, index) {
+                  return _c("p", { key: "error-" + index }, [
+                    _vm._v(_vm._s(error))
+                  ])
+                }),
+                0
+              )
+            : _c("div", [
+                _c("p", [
+                  _vm._v(
+                    "Please allow at least 24 hours for your reservation confirmation"
+                  )
+                ])
+              ])
+        ]
       )
-    ]
+    ],
+    1
   )
 }
 var staticRenderFns = []
