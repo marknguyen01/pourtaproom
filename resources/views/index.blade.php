@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>{{ setting('site.title') }} | Charlotte</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
@@ -65,15 +65,15 @@
                 </div>
                 <div class="hero-body mt-2 mt-lg-4">
                     <a class="hero-logo d-block text-center">
-                        <img src="{{ asset('img/logo.png') }}" alt="" href="/">
+                        <img src="{{ asset('storage/' . setting('site.logo')) }}" alt="" href="/">
                     </a>
                     <div class="hero-title font-family--lora font-size--xl text-center text-color--white my-2 my-md-3 my-lg-4">
-                        Pour Taproom
+                        {{ setting('site.title') }}
                     </div>
                     <div class="dots-white">
                     </div>
                     <div class="hero-content font-family--lora font-size--rg text-color--white my-2 my-md-3 my-lg-4 px-3 px-lg-0 text-center">
-                        Come enjoy a unique experience at our 118 tap self-pour taproom where you can taste from our large wall of taps, featuring a wide selection of curated local and regional craft beers, wines and ciders. No prepaying, just open a tab and you’re good to go.
+                        {!! setting('site.description') !!}
                     </div>
                     <div class="hero-button my-2 my-md-3 my-lg-4 text-center">
                         <a class="button button--transparent-white font-size--rg" href="/#menu">
