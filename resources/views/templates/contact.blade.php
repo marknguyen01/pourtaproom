@@ -36,12 +36,12 @@
                             Contact Information
                         </div>
                         <div class="font-size--sm mt-3">
-                            <p>1212 Central Avenue, Charlotte NC 28204</p>
-                            <p><a href="tel:(980)-299-8866">(980)-299-8866</a></p>
+                            <p><a href="http://maps.apple.com/?daddr={{ urlencode(setting('contact.address')) }}">1212 Central Avenue, Charlotte NC 28204</a></p>
+                            <p><a href="tel:{{ setting('contact.phone_number') }}">{{ setting('contact.phone_number') }}</a></p>
                         </div>
                     </div>
                     <div class="col-12">
-                        <a class="button button--transparent-grey mt-3 text-center" href="http://maps.apple.com/?daddr={{ urlencode('1212 Central Avenue, Charlotte NC 28204') }}">
+                        <a class="button button--transparent-grey mt-3 text-center" href="http://maps.apple.com/?daddr={{ urlencode(setting('contact.address')) }}">
                             GET DIRECTIONS</a>
                     </div>
                 </div>
