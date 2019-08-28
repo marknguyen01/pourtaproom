@@ -14,3 +14,8 @@
 Route::get('/', 'HomeController@index')->name('index');
 Route::get('menu/{sectionID}', 'HomeController@getItems')->name('menu');
 Route::post('contact', 'HomeController@sendEmail')->name('contact');
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
