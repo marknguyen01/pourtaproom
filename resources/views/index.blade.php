@@ -56,7 +56,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link social-icon" href="#">
-                                        <ion-icon name="aperture"></ion-icon>
+                                        <img src="{{ asset('img/loyalzoo.png') }}" style="vertical-align: top">
                                     </a>
                                 </li>
                             </ul>
