@@ -42,7 +42,10 @@
         </button>
         <b-modal id="modalPopover" v-bind:title="errors && errors.length > 0 ? 'Please correct the following errors' : 'Reservation has been submited'" ok-only centered>
             <div v-if="errors && errors.length > 0">
-                <p v-for="(error, index) in errors" :key="`error-${index}`">{{ error }}</p>
+                <div v-if="Array.isArray(errors)">
+                    <p v-for="(error, index) in errors" :key="`error-${index}`">{{ error }}</p>
+                </div>
+                <p v-else>{{ errors }}</p>
             </div>
             <div v-else>
                 <p>Please allow at least 24 hours for your reservation confirmation</p>
@@ -73,7 +76,7 @@
                 num_people: null,
                 catering: null,
                 loading: false,
-                errors: [],
+                errors: null,
             }
         },
         methods: {
@@ -101,6 +104,7 @@
                     that.loading = false;
                 }).catch(function(err) {
                     that.errors = err.response.data.message;
+                    console.log(that.errors);
                     that.$bvModal.show('modalPopover')
                     that.loading = false;
                 });

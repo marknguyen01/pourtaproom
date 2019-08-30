@@ -49,11 +49,16 @@ class HomeController extends Controller
             ), 400);
         }
         $data = array(
-            'name' => strip_tags($rq->input('name')),
+            'first_name' => strip_tags($rq->input('first_name')),
+            'last_name' => strip_tags($rq->input('last_name')),
+            'phone_number' => strip_tags($rq->input('phone_number')),
             'email' => strip_tags($rq->input('email')),
-            'phone' => strip_tags($rq->input('phone')),
-            'msg' => strip_tags($rq->input('message')),
-            'subject' => 'Customer inquiry | ' . strip_tags($rq->input('name')),
+            'event' => strip_tags($rq->input('event')),
+            'date_time' => strip_tags($rq->input('date_time')),
+            'company' => strip_tags($rq->input('company')),
+            'num_people' => strip_tags($rq->input('num_people')),
+            'catering' => strip_tags($rq->input('catering')),
+            'subject' => 'Reservation | ' . strip_tags($rq->input('first_name') . ' ' . strip_tags($rq->input('last_name'))),
         );
         if(\Session::get('contact_time') != null && !\Auth::check()) {
             if(time() - \Session::get('contact_time') <= 90)
@@ -66,16 +71,16 @@ class HomeController extends Controller
                     \Mail::to('marknguyen1621@gmail.com')->send(new \App\Mail\EmailContact($data));
                 }
                 else {
-                    \Mail::to($site_email . '.test-google-a.com')->send(new \App\Mail\EmailContact($data));
+                    \Mail::to(setting('contact.email'))->send(new \App\Mail\EmailContact($data));
                 }
             }
             else {
-                \Mail::to($site_email . '.test-google-a.com')->send(new \App\Mail\EmailContact($data));
+                \Mail::to(setting('contact.email'))->send(new \App\Mail\EmailContact($data));
             }
 
             \Session::put('contact_time', time());
             return response()->json(array(
-                'message' => 'An inquiry has been sent succesfully to ' . $site_email
+                'message' => ['Your res']
             ));
             \Log::info($site_email);
         }
