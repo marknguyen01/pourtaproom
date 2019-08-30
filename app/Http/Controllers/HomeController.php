@@ -16,7 +16,10 @@ class HomeController extends Controller
         $this->items = $itemRes;
     }
     public function index() {
-        return view('index', ['categories' => $this->categories, 'items' => $this->items]);
+        if(\Auth::check() || \App::environment('local')) {
+            return view('index', ['categories' => $this->categories, 'items' => $this->items]);
+        }
+        else return view('construction');
     }
 
     public function getItems(Request $rq, $sectionID) {
