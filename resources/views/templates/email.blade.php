@@ -24,7 +24,7 @@
         @if($company)
         <p><strong>Company:</strong> {{ $company }}</p>
         @endif
-        <p><strong>Date and Time:</strong> {{ date_format($date_time, 'M-d-Y H:i') }}</p>
+        <p><strong>Date and Time:</strong> {{ (new DateTime($date_time))->format('M-d-y h:i A') }}</p>
         <p><strong>Estimated Number of People:</strong> {{ $num_people }}</p>
         <p><strong>Event Type:</strong> {{ $event }}</p>
         @if($catering)
