@@ -1895,11 +1895,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 
 
 
@@ -1921,7 +1916,10 @@ __webpack_require__.r(__webpack_exports__);
       num_people: null,
       catering: null,
       loading: false,
-      errors: null
+      response: {
+        title: null,
+        message: null
+      }
     };
   },
   methods: {
@@ -1946,10 +1944,10 @@ __webpack_require__.r(__webpack_exports__);
         }
       };
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(this.route, payload, axiosConfig).then(function (res) {
-        that.loading = false;
+        that.response = res.data;
       })["catch"](function (err) {
-        that.errors = err.response.data.message;
-        console.log(that.errors);
+        that.response = err.response.data;
+      }).then(function () {
         that.$bvModal.show('modalPopover');
         that.loading = false;
       });
@@ -75931,36 +75929,23 @@ var render = function() {
         {
           attrs: {
             id: "modalPopover",
-            title:
-              _vm.errors && _vm.errors.length > 0
-                ? "Please correct the following errors"
-                : "Reservation has been submited",
+            title: _vm.response.title,
             "ok-only": "",
             centered: ""
           }
         },
         [
-          _vm.errors && _vm.errors.length > 0
-            ? _c("div", [
-                Array.isArray(_vm.errors)
-                  ? _c(
-                      "div",
-                      _vm._l(_vm.errors, function(error, index) {
-                        return _c("p", { key: "error-" + index }, [
-                          _vm._v(_vm._s(error))
-                        ])
-                      }),
-                      0
-                    )
-                  : _c("p", [_vm._v(_vm._s(_vm.errors))])
-              ])
-            : _c("div", [
-                _c("p", [
-                  _vm._v(
-                    "Please allow at least 24 hours for your reservation confirmation"
-                  )
-                ])
-              ])
+          Array.isArray(_vm.response.message)
+            ? _c(
+                "div",
+                _vm._l(_vm.response.message, function(message, index) {
+                  return _c("p", { key: "message-" + index }, [
+                    _vm._v(_vm._s(message))
+                  ])
+                }),
+                0
+              )
+            : _c("p", [_vm._v(_vm._s(_vm.response.message))])
         ]
       )
     ],
@@ -88931,8 +88916,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Projects\Websites\pourtaproom\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\Projects\Websites\pourtaproom\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\Project\Websites\pourtaproom\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\Project\Websites\pourtaproom\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

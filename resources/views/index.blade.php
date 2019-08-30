@@ -18,8 +18,8 @@
         <header id="hero">
             <div class="container-fluid">
                 <div class="hero-nav row no-gutters">
-                    <div class="col-md-8 col-12">
-                        <nav class="navbar navbar-expand-md w-100" id="left-nav">
+                    <div class="col-lg-8 col-12">
+                        <nav class="navbar navbar-expand-lg w-100" id="left-nav">
                                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                                     <span class="navbar-toggler-icon"></span>
                                 </button>
@@ -41,7 +41,7 @@
                                 </div>
                             </nav>
                     </div>
-                    <div class="col-md-4 col-12">
+                    <div class="col-lg-4 col-12">
                         <nav id="right-nav" class="navbar navbar-expand text-center text-lg-right">
                             <ul class="navbar-nav mx-auto mr-md-0">
                                 <li class="nav-item active">
@@ -63,9 +63,9 @@
                         </nav>
                     </div>
                 </div>
-                <div class="hero-body mt-2 mt-lg-4">
+                <div class="hero-body w-100 mt-1">
                     <a class="hero-logo d-block text-center">
-                        <img src="{{ asset('storage/' . setting('site.logo')) }}" alt="" href="/">
+                        <img src="{{ App::environment('local') ? asset('img/logo.png') : asset('storage/' . setting('site.logo')) }}" alt="" href="/">
                     </a>
                     <div class="hero-title font-family--lora font-size--xl text-center text-color--white my-2 my-md-3 my-lg-4">
                         {{ setting('site.title') }}
@@ -75,7 +75,7 @@
                     <div class="hero-content font-family--lora font-size--rg text-color--white my-2 my-md-3 my-lg-4 px-3 px-lg-0 text-center">
                         {!! setting('site.description') !!}
                     </div>
-                    <div class="hero-button my-2 my-md-3 my-lg-4 text-center">
+                    <div class="hero-button text-center">
                         <a class="button button--transparent-white font-size--rg" href="/#menu">
                             Show Menu
                         </a>

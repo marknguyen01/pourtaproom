@@ -5,20 +5,30 @@
                 border: 2px solid #5C5C5D;
                 background-color: transparent;
                 color: #5C5C5D;
-                width: 100%;
+                width: 200px;
+                display: inline-block;
+                text-align: center;
+                padding: 12px 0;
+                margin-right: 24px;
+                text-decoration: none;
+                transition: background-color 0.75s ease-in, border-color 0.75s ease, color 0.75s ease;
+            }
+            .button:hover {
+                border-color: #B10000;
+                color: #B10000;
             }
         </style>
     </head>
 	<body>
-        <p>By: {{ $first_name . ' ' . $last_name }}</p>
+        <p><strong>By:</strong> {{ $first_name . ' ' . $last_name }}</p>
         @if($company)
-        <p>Company: {{ $company }}</p>
+        <p><strong>Company:</strong> {{ $company }}</p>
         @endif
-        <p>Date and Time: {{ $date_time }}</p>
-        <p>Estimated Number of People: {{ $num_people }}</p>
-        <p>Event Type: {{ $event }}</p>
+        <p><strong>Date and Time:</strong> {{ date_format($date_time, 'M-d-Y H:i') }}</p>
+        <p><strong>Estimated Number of People:</strong> {{ $num_people }}</p>
+        <p><strong>Event Type:</strong> {{ $event }}</p>
         @if($catering)
-        <p>Catering Needs: {{ $catering }}</p>
+        <p><strong>Catering Needs:</strong> {{ $catering }}</p>
         @endif
 
         <a class="button" href="mailto:{{ $email }}">EMAIL</a>

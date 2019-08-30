@@ -40,16 +40,11 @@
             <div class="lds-ellipsis" v-if="loading"><div></div><div></div><div></div><div></div></div>
             <span v-if="!loading">Book an Event</span>
         </button>
-        <b-modal id="modalPopover" v-bind:title="errors && errors.length > 0 ? 'Please correct the following errors' : 'Reservation has been submited'" ok-only centered>
-            <div v-if="errors && errors.length > 0">
-                <div v-if="Array.isArray(errors)">
-                    <p v-for="(error, index) in errors" :key="`error-${index}`">{{ error }}</p>
-                </div>
-                <p v-else>{{ errors }}</p>
+        <b-modal id="modalPopover" v-bind:title="response.title" ok-only centered>
+            <div v-if="Array.isArray(response.message)">
+                <p v-for="(message, index) in response.message" :key="`message-${index}`">{{ message }}</p>
             </div>
-            <div v-else>
-                <p>Please allow at least 24 hours for your reservation confirmation</p>
-            </div>
+            <p v-else>{{ response.message }}</p>
         </b-modal>
     </form>
 </template>
@@ -76,7 +71,10 @@
                 num_people: null,
                 catering: null,
                 loading: false,
-                errors: null,
+                response: {
+                    title: null,
+                    message: null,
+                },
             }
         },
         methods: {
@@ -100,14 +98,14 @@
                         'Content-Type': 'application/json;charset=UTF-8',
                     }
                 };
-                axios.post(this.route, payload, axiosConfig).then(function(res) {
-                    that.loading = false;
-                }).catch(function(err) {
-                    that.errors = err.response.data.message;
-                    console.log(that.errors);
+                axios.post(this.route, payload, axiosConfig).then(res => {
+                    that.response = res.data;
+                }).catch(err => {
+                    that.response = err.response.data;
+                }).then(() => {
                     that.$bvModal.show('modalPopover')
                     that.loading = false;
-                });
+                })
             }
         },
     }

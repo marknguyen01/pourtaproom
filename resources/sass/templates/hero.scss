@@ -11,8 +11,12 @@
             padding-top: ($base-spacing * 3);
             padding-bottom: ($base-spacing * 3);
         }
-        z-index: 2;
-        position: relative;
+        @include media-breakpoint-down(md) {
+            @include orientation(landscape) {
+                padding-top: $base-spacing;
+                padding-bottom: $base-spacing;
+            }
+        }
     }
 
     #left-nav {
@@ -21,11 +25,16 @@
         z-index: 2;
         left: 50%;
         transform: translateX(-50%);
-        @include media-breakpoint-up(md) {
+        @include media-breakpoint-up(lg) {
             position: unset;
             top: 0;
             left: 0;
             transform: none;
+        }
+        @include media-breakpoint-down(md) {
+            @include orientation(landscape) {
+                top: $base-spacing;
+            }
         }
         .navbar-toggler {
             top: 0;
@@ -44,7 +53,7 @@
             border: 1px solid rgba(0, 0, 0, 0.1);
             margin-top: $base-spacing;
             padding: $base-spacing;
-            @include media-breakpoint-up(md) {
+            @include media-breakpoint-up(lg) {
                 background-color: transparent;
                 margin-top: 0;
                 padding: 0;
@@ -53,7 +62,7 @@
 
         .nav-link {
             color: $content-color;
-            @include media-breakpoint-up(md) {
+            @include media-breakpoint-up(lg) {
                 color: $white;
             }
         }
@@ -104,15 +113,15 @@
 
     .hero-logo {
         img {
-            width: 250px * 0.7;
-            height: 160px * 0.7;
-            @include media-breakpoint-up(md) {
-                width: 250px * 0.8;
-                height: 160px * 0.8;
-            }
-            @include media-breakpoint-up(lg) {
-                width: 250px;
-                height: 160px;
+            $w: 180px;
+            $h: 120px;
+            width: $w;
+            height: $h;
+            @include media-breakpoint-down(md) {
+                @include orientation(landscape) {
+                    width: $w * 0.7;
+                    height: $h * 0.7;
+                }
             }
         }
     }
@@ -125,6 +134,11 @@
         z-index: 3;
         left: 50%;
         transform: translateX(-50%);
+        @include media-breakpoint-down(md) {
+            @include orientation(landscape) {
+                display: none;
+            }
+        }
         .scroll-line {
             width: 2px;
             background-color: $white;
@@ -137,6 +151,21 @@
             animation-iteration-count: infinite;
             animation-name: movingLine;
             transition: height 1.5s ease;
+        }
+    }
+    .hero-button {
+        margin-top: $base-spacing * 6;
+        @include media-breakpoint-down(md) {
+            @include orientation(landscape) {
+                margin-top: $base-spacing;
+            }
+        }
+    }
+    .dots-white {
+        @include media-breakpoint-down(md) {
+            @include orientation(landscape) {
+                display: none;
+            }
         }
     }
 }

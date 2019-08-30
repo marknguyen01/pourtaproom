@@ -1,11 +1,12 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Lora:400,700|Poppins:400,700&display=swap');
 
+// Variables
+@import 'variables';
+
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-// Variables
-@import 'variables';
 @import 'mixins';
 @import 'utilities';
 @import 'animations';
@@ -40,8 +41,10 @@ a {
     padding-left: $base-spacing;
     padding-right: $base-spacing;
     @include media-breakpoint-up(lg) {
-        padding-left: ($base-spacing * 12);
-        padding-right: ($base-spacing * 12);
+        @include orientation(landscape) {
+            padding-left: ($base-spacing * 12);
+            padding-right: ($base-spacing * 12);
+        }
     }
 }
 

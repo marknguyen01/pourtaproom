@@ -45,6 +45,7 @@ class HomeController extends Controller
                 array_push($errors, $message);
             }
             return response()->json(array(
+                'title' => 'Please correct the following errors',
                 'message' => $errors,
             ), 400);
         }
@@ -60,12 +61,14 @@ class HomeController extends Controller
             'catering' => strip_tags($rq->input('catering')),
             'subject' => 'Reservation | ' . strip_tags($rq->input('first_name') . ' ' . strip_tags($rq->input('last_name'))),
         );
-        if(\Session::get('contact_time') != null && !\Auth::check()) {
+        if(\Session::get('contact_time') != null && !\App::environment('local')) {
             if(time() - \Session::get('contact_time') <= 90)
-                return response()->json(['message' => 'Please wait at least 15 minutes before sending another message'], 400);
+                return response()->json([
+                    'title' => 'Spam prevention system',
+                    'message' => 'Please wait at least 15 minutes before sending another message'
+                ], 400);
         }
         try {
-            $site_email = setting('site.email');
             if(\Auth::check()) {
                 if(\Auth::user()->email === "marknguyen1621@gmail.com") {
                     \Mail::to('marknguyen1621@gmail.com')->send(new \App\Mail\EmailContact($data));
@@ -77,17 +80,19 @@ class HomeController extends Controller
             else {
                 \Mail::to(setting('contact.email'))->send(new \App\Mail\EmailContact($data));
             }
-
-            \Session::put('contact_time', time());
-            return response()->json(array(
-                'message' => ['Your res']
-            ));
-            \Log::info($site_email);
         }
         catch(Exception $e) {
             return json_encode(array(
-                'message' => 'Error: ' . $e->getMessage()
+                'title' => 'Unexpected error',
+                'message' => $e->getMessage(),
             ), 400);
+        }
+        finally {
+            \Session::put('contact_time', time());
+            return response()->json(array(
+                'title' => 'Your reservation has been submitted',
+                'message' => ['Please allow at least 24 hours for confirmation'],
+            ));
         }
     }
 }

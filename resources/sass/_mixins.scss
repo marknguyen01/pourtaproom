@@ -1,8 +1,4 @@
-@import 'variables';
 
-@import '~bootstrap/scss/functions';
-@import '~bootstrap/scss/variables';
-@import '~bootstrap/scss/mixins';
 
 %font-size {
     &--sm {
@@ -47,3 +43,17 @@
 @function overlay($color) {
     @return linear-gradient($color, $color);
 }
+
+
+@mixin orientation($direction) {
+
+    $orientation-landscape: "(orientation:landscape)";
+    $orientation-portrait: "(orientation:portrait)";
+
+    @if $direction == landscape {
+      @media #{$orientation-landscape} { @content; }
+    }
+    @if $direction == portrait {
+      @media #{$orientation-portrait} { @content; }
+    }
+  }
