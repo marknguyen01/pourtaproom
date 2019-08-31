@@ -11270,6 +11270,65 @@ body,
   touch-action: auto !important;
 }
 
+.event .event-name {
+  color: #404044;
+  font-weight: bold;
+}
+
+.event .event-date {
+  color: #484E51;
+}
+
+.event .event-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.event .event-image:hover .event-overlay {
+  opacity: 1;
+}
+
+.event .event-image:hover img {
+  transform: scale(1.5);
+}
+
+.event .event-image img {
+  transform-origin: center center;
+  transition: transform 0.75s, visiblity 0.75s ease-in;
+}
+
+.event .event-image .event-overlay {
+  position: absolute;
+  opacity: 0;
+  transition: 0.75s opacity ease;
+  padding: 12px;
+  width: 80%;
+  height: 80%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  top: 50%;
+}
+
+.event .event-image .event-button {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff !important;
+  width: 256px;
+  padding: 12px 0;
+  cursor: pointer;
+}
+
+.event .event-image .event-button:first-of-type {
+  margin-right: 6px;
+}
+
+.event .event-image .event-button:last-of-type {
+  margin-left: 6px;
+}
+
+.event .event-image .event-button:hover {
+  background: #000;
+}
+
 html {
   scroll-behavior: smooth;
 }

@@ -99,9 +99,11 @@
         <section class="section" id="menu">
             @include('templates.menu')
         </section>
+        @if(isset($events) && $events->isNotEmpty())
         <section class="section" id="event">
-
+            @include('templates.event')
         </section>
+        @endif
         <section id="contact">
             @include('templates.contact')
         </section>

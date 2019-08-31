@@ -1,0 +1,53 @@
+.event {
+    .event-name {
+        color: $title-color;
+        font-weight: bold;
+    }
+    .event-date {
+        color: $subtitle-color;
+    }
+    .event-image {
+        position: relative;
+        overflow: hidden;
+        &:hover {
+            .event-overlay {
+                opacity: 1;
+            }
+            img {
+                transform: scale(1.5);
+            }
+        }
+        img {
+            transform-origin: center center;
+            transition: transform 0.75s, visiblity 0.75s ease-in;
+        }
+        .event-overlay {
+            position: absolute;
+            opacity: 0;
+            transition: 0.75s opacity ease;
+            padding: $base-spacing;
+            width: 80%;
+            height: 80%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            top: 50%;
+        }
+        .event-button {
+            background-color: $transparent-black;
+            color: $white !important;
+            width: 256px;
+            padding: $base-spacing 0;
+            cursor: pointer;
+            &:first-of-type {
+                margin-right: $base-spacing / 2;
+            }
+            &:last-of-type {
+                margin-left: $base-spacing / 2;
+            }
+
+            &:hover {
+                background: $black;
+            }
+        }
+    }
+}

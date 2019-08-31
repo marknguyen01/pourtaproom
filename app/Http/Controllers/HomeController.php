@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Event;
+
 class HomeController extends Controller
 {
     private $categories, $items, $client = null;
@@ -17,7 +19,7 @@ class HomeController extends Controller
     }
     public function index() {
         if(\Auth::check() || \App::environment('local')) {
-            return view('index', ['categories' => $this->categories, 'items' => $this->items]);
+            return view('index', ['categories' => $this->categories, 'items' => $this->items, 'events' => $this->getEvents()]);
         }
         else return view('construction');
     }
@@ -29,6 +31,10 @@ class HomeController extends Controller
             return response()->json($res);
         }
         else return error(404);
+    }
+
+    private function getEvents() {
+        return Event::where('published', true)->get();
     }
 
     public function createReservation(Request $rq) {
