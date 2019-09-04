@@ -88718,7 +88718,7 @@ window.loading = function () {
   el.classList.add('fadeout');
   setTimeout(function () {
     el.parentNode.removeChild(el);
-  }, 2000);
+  }, 1000);
 };
 
 /***/ }),
