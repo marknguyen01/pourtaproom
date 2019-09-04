@@ -49,3 +49,11 @@ window.addEventListener('ready', () => {
     })
 });
 
+window.loading = function() {
+    let el = document.getElementById('loader');
+    el.classList.add('fadeout');
+    setTimeout(function() {
+        el.parentNode.removeChild(el)
+    }, 2000);
+};
+

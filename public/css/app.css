@@ -5850,13 +5850,13 @@ a.badge-dark.focus {
   font-size: 1.5rem;
   font-weight: 700;
   line-height: 1;
-  color: #000;
+  color: #000000;
   text-shadow: 0 1px 0 #ffffff;
   opacity: 0.5;
 }
 
 .close:hover {
-  color: #000;
+  color: #000000;
   text-decoration: none;
 }
 
@@ -6031,7 +6031,7 @@ a.close.disabled {
   z-index: 1040;
   width: 100vw;
   height: 100vh;
-  background-color: #000;
+  background-color: #000000;
 }
 
 .modal-backdrop.fade {
@@ -6190,7 +6190,7 @@ a.close.disabled {
 .bs-tooltip-auto[x-placement^=top] .arrow::before {
   top: 0;
   border-width: 0.4rem 0.4rem 0;
-  border-top-color: #000;
+  border-top-color: #000000;
 }
 
 .bs-tooltip-right,
@@ -6209,7 +6209,7 @@ a.close.disabled {
 .bs-tooltip-auto[x-placement^=right] .arrow::before {
   right: 0;
   border-width: 0.4rem 0.4rem 0.4rem 0;
-  border-right-color: #000;
+  border-right-color: #000000;
 }
 
 .bs-tooltip-bottom,
@@ -6226,7 +6226,7 @@ a.close.disabled {
 .bs-tooltip-auto[x-placement^=bottom] .arrow::before {
   bottom: 0;
   border-width: 0 0.4rem 0.4rem;
-  border-bottom-color: #000;
+  border-bottom-color: #000000;
 }
 
 .bs-tooltip-left,
@@ -6245,7 +6245,7 @@ a.close.disabled {
 .bs-tooltip-auto[x-placement^=left] .arrow::before {
   left: 0;
   border-width: 0.4rem 0 0.4rem 0.4rem;
-  border-left-color: #000;
+  border-left-color: #000000;
 }
 
 .tooltip-inner {
@@ -6253,7 +6253,7 @@ a.close.disabled {
   padding: 0.25rem 0.5rem;
   color: #ffffff;
   text-align: center;
-  background-color: #000;
+  background-color: #000000;
   border-radius: 0.25rem;
 }
 
@@ -10610,7 +10610,7 @@ a.text-dark:focus {
   }
 
   .badge {
-    border: 1px solid #000;
+    border: 1px solid #000000;
   }
 
   .table {
@@ -10735,7 +10735,7 @@ body,
 @media (min-width: 992px) {
   .button--transparent-white {
     width: 240px;
-    margin: 0 36px;
+    margin: 0 6px;
   }
 }
 
@@ -11349,7 +11349,67 @@ body,
 }
 
 .event .event-image .event-button:hover {
-  background: #000;
+  background: #000000;
+}
+
+#loader {
+  position: fixed;
+  background: #ffffff;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+  opacity: 1;
+  transition: opacity 2s ease-in-out;
+}
+
+.loader-container {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  text-align: center;
+}
+
+.loader-container img {
+  width: 180px;
+  height: 120px;
+  -webkit-animation-name: spin;
+          animation-name: spin;
+  -webkit-animation-duration: 1500ms;
+          animation-duration: 1500ms;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+}
+
+.loader-text {
+  margin-top: 36px;
+  font-size: 28px;
+}
+
+.fadeout {
+  opacity: 0 !important;
+}
+
+@-webkit-keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 html {

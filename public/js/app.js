@@ -88713,6 +88713,14 @@ window.addEventListener('ready', function () {
   });
 });
 
+window.loading = function () {
+  var el = document.getElementById('loader');
+  el.classList.add('fadeout');
+  setTimeout(function () {
+    el.parentNode.removeChild(el);
+  }, 2000);
+};
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
