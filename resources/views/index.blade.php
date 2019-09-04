@@ -93,8 +93,8 @@
         <section class="section" id="about">
             @include('templates.about')
         </section>
-        <section class="section" id="video">
-
+        <section class="section p-0" id="video">
+            @include('templates.video')
         </section>
         <section class="section" id="menu">
             @include('templates.menu')
