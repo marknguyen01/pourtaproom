@@ -2,8 +2,8 @@
     background-image: overlay($transparent-black), url('/img/hero.png');
     background-position: bottom center;
     background-size: cover;
-    height: 100vh;
-    height: calc(var(--vh, 1vh) * 100);
+    height: fill-available;
+    // height: calc(var(--vh, 1vh) * 100);
     .container-fluid {
         padding-top: ($base-spacing * 2);
         padding-bottom: ($base-spacing * 2);

@@ -27,17 +27,17 @@
             <nav id="right-nav" class="navbar navbar-expand text-center text-lg-right">
                 <ul class="navbar-nav mx-auto mr-md-0">
                     <li class="nav-item active">
-                        <a class="nav-link social-icon" href="#">
+                        <a class="nav-link social-icon" href="{{ setting('contact.facebook') }}">
                             <ion-icon name="logo-facebook"></ion-icon>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link social-icon" href="#">
+                        <a class="nav-link social-icon" href="{{ setting('contact.instagram') }}">
                             <ion-icon name="logo-instagram"></ion-icon>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link social-icon" href="#">
+                        <a class="nav-link social-icon" href="{{ setting('contact.loyalzoo') }} ">
                             <img src="{{ asset('img/loyalzoo.png') }}" style="vertical-align: top">
                         </a>
                     </li>
