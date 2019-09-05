@@ -1,8 +1,6 @@
-#video {
+.video {
     min-height: 50vh;
-    background-image: overlay($transparent-black), url('img/video.png');
     position: relative;
-    background-position: center center;
 }
 
 .video-container {
@@ -26,6 +24,15 @@
 
     .video-overlay {
         background-color: $transparent-black;
+    }
+
+    .video-title {
+        color: $white;
+        font-family: $font-lora;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 }
 

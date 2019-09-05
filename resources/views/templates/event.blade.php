@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="title-block">
         <div class="title">
-            Our Events
+            Upcoming Events
         </div>
         <div class="sub-title">
             A Beer & Wine Festival Every Day Of the Week

@@ -1,9 +1,21 @@
 #menu {
     background-color: $bg-accent-color;
-
+    position: relative;
     .menu-categories {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: $bg-accent-color;
+        padding: $base-spacing $base-spacing * 2;
+        bottom: -1px;
+        @include media-breakpoint-up(lg) {
+            padding: $base-spacing * 2;
+        }
         .menu-category {
-            padding: 0 $base-spacing;
+            padding: 0 $base-spacing / 2;
+            @include media-breakpoint-up(lg) {
+                padding: 0 $base-spacing;
+            }
             cursor: pointer;
             &.active {
                 font-weight: bold;
