@@ -7,7 +7,6 @@
 require('./bootstrap');
 
 import BootstrapVue from 'bootstrap-vue';
-import VueLazyload from 'vue-lazyload';
 import Vue from 'vue'
 import VueLayers from 'vuelayers'
 import 'vuelayers/lib/style.css' // needs css-loader
@@ -33,10 +32,7 @@ Vue.use(BootstrapVue);
 Vue.use(VueLayers, {
     dataProjection: 'EPSG:4326',
 });
-Vue.use(VueLazyload, {
-  preLoad: 1.3,
-  attempt: 1
-});
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

@@ -30,7 +30,7 @@
                 <div class="col-lg-6" v-for="item in items" v-bind:key="item.id">
                     <div class="d-flex">
                         <div class="menu-item-img my-3" v-b-popover.top.hover="item.description != undefined && item.description.length > 0 ? item.description : 'No description'">
-                            <img v-lazy="item.label_image" v-bind:alt="item.name">
+                            <visual :image="item.label_image" v-bind:alt="item.name" load="visible" in-viewport-root-margin='-10% 0%'></visual>
                         </div>
                         <div class="menu-item align-self-center">
                             <div class="menu-item-header">
@@ -51,8 +51,13 @@
 
 <script>
     import axios from "axios";
+    import VueVisual from 'vue-visual';
+    import 'vue-visual/index.css';
     export default {
         props: ['categoryData', 'itemData'],
+        components: {
+            'visual': VueVisual
+        },
         data() {
             return {
                 categories: JSON.parse(this.categoryData).sections,
