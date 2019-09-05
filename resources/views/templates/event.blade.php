@@ -26,7 +26,7 @@
 
                     </div>
                     <div class="dots-grey"></div>
-                    <div class="event-decription text-center">
+                    <div class="event-decription">
                         {!! $event->description !!}
                     </div>
                 </div>
