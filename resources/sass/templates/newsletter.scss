@@ -11,6 +11,7 @@
             transition: 0.75s border-color ease-in, 0.75s color ease-in;
             box-shadow: none;
             border-radius: 0;
+            width: inherit;
             &:hover, &:focus {
                 border-color: #2C2C2C;
             }
