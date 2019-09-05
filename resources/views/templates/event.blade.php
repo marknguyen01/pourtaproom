@@ -9,7 +9,7 @@
     </div>
     <div class="row mt-3 mt-md-4 mt-lg-5">
         @foreach($events as $event)
-            <div class="col-lg-4 col-md-6">
+            <div class="col-md-6">
                 <div class="event">
                     <div class="event-image text-center">
                         <img src="{{ Voyager::image(json_decode($event->thumbnail('cropped'))[0]) }}" alt="{{ $event->name }}" class="img-fluid">

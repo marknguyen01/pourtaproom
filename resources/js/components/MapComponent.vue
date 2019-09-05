@@ -21,6 +21,7 @@
                         <div class="font-size--sm mt-3">
                             <p><a v-bind:href="encodedAddress">{{ addressData }}</a></p>
                             <p><a v-bind:href="'tel:' + phoneData">{{ phoneData }}</a></p>
+                            <p><a href="mailto:charlotte@pourtaproom.com">charlotte@pourtaproom.com</a></p>
                         </div>
                     </div>
                     <div class="col-12">

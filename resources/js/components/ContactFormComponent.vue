@@ -38,7 +38,7 @@
         </div>
         <button type="submit" class="contact-btn button button--transparent-white mt-3">
             <div class="lds-ellipsis" v-if="loading"><div></div><div></div><div></div><div></div></div>
-            <span v-if="!loading">Book an Event</span>
+            <span v-if="!loading">Submit Inquiry</span>
         </button>
         <b-modal id="modalPopover" v-bind:title="response.title" ok-only centered>
             <div v-if="Array.isArray(response.message)">

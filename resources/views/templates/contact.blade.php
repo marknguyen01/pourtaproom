@@ -3,10 +3,10 @@
         <div class="contact-form container-fluid section">
             <div class="title-block">
                 <div class="title text-color--white font-weight-normal">
-                    Make a Reservation
+                    Event Inquiry Form
                 </div>
                 <div class="sub-title text-color--white">
-                    Something
+                    Corporate Events, Private Events, Holiday Parties, Birthdays
                 </div>
             </div>
             <div class="dots-white"></div>
