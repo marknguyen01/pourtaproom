@@ -25,7 +25,7 @@
             <section class="section" id="about">
                 @include('templates.about')
             </section>
-            <section class="section" id="menu">
+            <section class="section pt-0" id="menu">
                 @include('templates.menu')
             </section>
             @if(isset($events) && $events->isNotEmpty())

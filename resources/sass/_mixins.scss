@@ -44,6 +44,9 @@
     @return linear-gradient($color, $color);
 }
 
+@function transparent($c, $opacity) {
+    @return rgba($color: $c, $alpha: $opacity)
+}
 
 @mixin orientation($direction) {
 

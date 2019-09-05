@@ -12,7 +12,7 @@
                                 Our Daily Selection
                             </div>
                             <div class="sub-title text-color--white">
-                                Choosing your favorite drinks couldn't be easier. 117 taps ready to serve.
+                                Find your favorite drinks at the largest self-serving taproom in the US
                             </div>
                         </div>
                     </div>
