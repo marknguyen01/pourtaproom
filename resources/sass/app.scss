@@ -107,3 +107,12 @@ a {
   opacity: 0;
 }
 
+.vv-fade-enter {
+	opacity: 0
+}
+.vv-fade-enter-active {
+	transition: opacity .3s
+}
+.vv-fade-leave-active {
+	transition-delay: .31s
+}
