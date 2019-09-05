@@ -11452,6 +11452,56 @@ body,
   text-align: center;
 }
 
+#newsletter form input,
+#newsletter form button {
+  border: 2px solid #ffffff;
+  background-color: transparent;
+  color: #ffffff;
+  transition: 0.75s border-color ease-in, 0.75s color ease-in;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+#newsletter form input:hover,
+#newsletter form input:focus,
+#newsletter form button:hover,
+#newsletter form button:focus {
+  border-color: #2C2C2C;
+}
+
+#newsletter form input {
+  padding: 24px 36px;
+}
+
+#newsletter form input::-webkit-input-placeholder {
+  color: #ffffff;
+}
+
+#newsletter form input::-moz-placeholder {
+  color: #ffffff;
+}
+
+#newsletter form input:-ms-input-placeholder {
+  color: #ffffff;
+}
+
+#newsletter form input::-ms-input-placeholder {
+  color: #ffffff;
+}
+
+#newsletter form input::placeholder {
+  color: #ffffff;
+}
+
+#newsletter form button {
+  padding: 0 24px;
+  height: 52px;
+}
+
+#newsletter form button:hover {
+  color: #2C2C2C;
+}
+
 html {
   scroll-behavior: smooth;
 }
