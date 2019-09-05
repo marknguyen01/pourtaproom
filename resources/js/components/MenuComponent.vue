@@ -11,7 +11,7 @@
                     <div class="col-lg-6" v-for="item in items" v-bind:key="item.id">
                         <div class="d-flex">
                             <div class="menu-item-img my-3" v-b-popover.top.hover="item.description != undefined && item.description.length > 0 ? item.description : 'No description'">
-                                <img v-bind:src="item.label_image" v-bind:alt="item.name">
+                                <img v-lazy="item.label_image" v-bind:alt="item.name">
                             </div>
                             <div class="menu-item align-self-center">
                                 <div class="menu-item-header">

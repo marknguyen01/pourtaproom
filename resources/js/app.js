@@ -7,6 +7,7 @@
 require('./bootstrap');
 
 import BootstrapVue from 'bootstrap-vue';
+import VueLazyload from 'vue-lazyload';
 
 
 window.Vue = require('vue');
@@ -26,6 +27,11 @@ Vue.component('menu-component', require('./components/MenuComponent.vue').defaul
 Vue.component('contact-form-component', require('./components/ContactFormComponent.vue').default);
 
 Vue.use(BootstrapVue);
+
+Vue.use(VueLazyload, {
+  preLoad: 1.3,
+  attempt: 1
+});
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
