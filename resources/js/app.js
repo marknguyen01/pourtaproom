@@ -8,7 +8,9 @@ require('./bootstrap');
 
 import BootstrapVue from 'bootstrap-vue';
 import VueLazyload from 'vue-lazyload';
-
+import Vue from 'vue'
+import VueLayers from 'vuelayers'
+import 'vuelayers/lib/style.css' // needs css-loader
 
 window.Vue = require('vue');
 
@@ -25,9 +27,12 @@ window.Vue = require('vue');
 
 Vue.component('menu-component', require('./components/MenuComponent.vue').default);
 Vue.component('contact-form-component', require('./components/ContactFormComponent.vue').default);
+Vue.component('map-component', require('./components/MapComponent.vue').default);
 
 Vue.use(BootstrapVue);
-
+Vue.use(VueLayers, {
+    dataProjection: 'EPSG:4326',
+});
 Vue.use(VueLazyload, {
   preLoad: 1.3,
   attempt: 1
@@ -39,13 +44,9 @@ Vue.use(VueLazyload, {
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const menuApp = new Vue({
-    el: '#menu',
+const app = new Vue({
+    el: '#body',
 });
-
-const contactApp = new Vue({
-    el: '#contact-form',
-})
 
 window.addEventListener('ready', () => {
     screen.orientation.lock('portrait').then(() => {
@@ -68,4 +69,4 @@ window.loading = function() {
 window.addEventListener('resize', () => {
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
-  });
+});

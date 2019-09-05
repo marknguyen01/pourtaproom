@@ -21,26 +21,28 @@
         <header id="hero">
             @include('templates.hero')
         </header>
-        <section class="section" id="about">
-            @include('templates.about')
-        </section>
-        <section class="section p-0" id="video">
-            @include('templates.video')
-        </section>
-        <section class="section" id="menu">
-            @include('templates.menu')
-        </section>
-        @if(isset($events) && $events->isNotEmpty())
-        <section class="section" id="event">
-            @include('templates.event')
-        </section>
-        @endif
-        <section class="section" id="newsletter">
-            @include('templates.newsletter')
-        </section>
-        <section id="contact">
-            @include('templates.contact')
-        </section>
+        <div id="body">
+            <section class="section" id="about">
+                @include('templates.about')
+            </section>
+            <section class="section p-0" id="video">
+                @include('templates.video')
+            </section>
+            <section class="section" id="menu">
+                @include('templates.menu')
+            </section>
+            @if(isset($events) && $events->isNotEmpty())
+            <section class="section" id="event">
+                @include('templates.event')
+            </section>
+            @endif
+            <section class="section" id="newsletter">
+                @include('templates.newsletter')
+            </section>
+            <section id="contact">
+                @include('templates.contact')
+            </section>
+        </div>
         <footer>
         </footer>
         <script src="{{ asset('js/app.js') }}" async defer></script>
