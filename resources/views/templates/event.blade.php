@@ -18,16 +18,15 @@
                             <a class="event-button align-self-center">Share</a>
                         </div>
                     </div>
+                    <div class="event-date text-center font-size--md">
+                        <a href="{{ route('event', $event->slug) }}">{{ (new DateTime($event->date_time))->format('F dS, Y \a\t h:i A') }}</a>
+                    </div>
                     <div class="event-name text-center font-size--rg">
                         <a href="{{ route('event', $event->slug) }}">{{ $event->name }}</a>
                     </div>
-                    <div class="event-date text-center font-size--md">
-                        <a href="{{ route('event', $event->slug) }}">{{ (new DateTime($event->date_time))->format('F dS, Y \a\t h:i A') }}</a>
-
-                    </div>
                     <div class="dots-grey"></div>
                     <div class="event-decription">
-                        {!! $event->description !!}
+                        {!! Str::words($event->description, 50) !!}
                     </div>
                 </div>
             </div>
