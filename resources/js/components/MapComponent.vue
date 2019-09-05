@@ -50,24 +50,21 @@ export default {
         }
     },
     mounted() {
+        let layer = new TileLayer();
         const overlay = new Overlay({
             element: document.getElementById('popup'),
             autoPan: true,
         })
         const map = new Map({
-        target: 'map',
-        controls: [],
-        interactions: [],
-        layers: [
-            new TileLayer({
-            source: new OSM()
+            target: 'map',
+            controls: [],
+            interactions: [],
+            layers: [layer],
+            overlays: [overlay],
+            view: new View({
+                center: fromLonLat([-80.817757, 35.220890]),
+                zoom: 17
             })
-        ],
-        overlays: [overlay],
-        view: new View({
-            center: fromLonLat([-80.817757, 35.220890]),
-            zoom: 17
-        })
         });
         map.on('postcompose', function() {
             let mapWidth = this.getSize()[0];
@@ -75,6 +72,12 @@ export default {
             overlayEl.style.width = mapWidth - 24 + 'px';
             overlay.setPosition(fromLonLat([-80.817757, 35.220890]));
         });
+
+        window.addEventListener("scroll", function(event) {
+            var top = this.scrollY;
+            if(top >= map.getTargetElement().getBoundingClientRect().top)
+                layer.setSource(new OSM());
+        }, false);
     }
 }
 </script>
