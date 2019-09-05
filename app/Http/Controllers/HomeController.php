@@ -34,7 +34,20 @@ class HomeController extends Controller
     }
 
     private function getEvents() {
-        return Event::where('published', true)->get();
+        $events = Event::where('published', true)->get();
+        $events->map(function($event, $key) {
+            $event->description = \Str::words($event->description, 50);
+            if(\App::environment('local')) {
+                $event->image = 'http://pourcharlotte.com/storage/' . json_decode($event->thumbnail('cropped'))[0];
+            }
+            else {
+                $event->image = \Voyager::image(json_decode($event->thumbnail('cropped'))[0]);
+            }
+            $event->date_time = (new \DateTime($event->date_time))->format('F dS, Y \a\t h:i A');
+            $event->url = route('event', $event->slug);
+            return $event;
+        });
+        return $events;
     }
 
     public function createReservation(Request $rq) {

@@ -27,6 +27,7 @@ window.Vue = require('vue');
 Vue.component('menu-component', require('./components/MenuComponent.vue').default);
 Vue.component('contact-form-component', require('./components/ContactFormComponent.vue').default);
 Vue.component('map-component', require('./components/MapComponent.vue').default);
+Vue.component('event-component', require('./components/EventComponent.vue').default);
 
 Vue.use(BootstrapVue);
 Vue.use(VueLayers, {

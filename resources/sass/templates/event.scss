@@ -1,3 +1,15 @@
+#event {
+    .slick-slide {
+        @include media-breakpoint-up(md) {
+            margin: 0 $base-spacing;
+        }
+    }
+    .slick-list {
+        @include media-breakpoint-up(md) {
+            margin: 0 -$base-spacing;
+        }
+    }
+}
 .event {
     .event-name {
         color: $title-color;
@@ -34,10 +46,11 @@
             top: 50%;
         }
         .event-button {
-            background-color: $transparent-black;
+            background-color: transparent($black, 0.5);
             color: $white !important;
             width: 256px;
             padding: $base-spacing 0;
+            margin: auto;
             cursor: pointer;
             &:first-of-type {
                 margin-right: $base-spacing / 2;

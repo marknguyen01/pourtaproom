@@ -23,7 +23,7 @@
     }
 
     .video-overlay {
-        background-color: $transparent-black;
+        background-color: transparent($black, 0.5);
     }
 
     .video-title {

@@ -11111,7 +11111,7 @@ body,
 }
 
 .video-container .video-overlay {
-  background-color: transparent(#000000, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .video-container .video-title {
@@ -11326,6 +11326,18 @@ body,
   touch-action: auto !important;
 }
 
+@media (min-width: 768px) {
+  #event .slick-slide {
+    margin: 0 12px;
+  }
+}
+
+@media (min-width: 768px) {
+  #event .slick-list {
+    margin: -12px;
+  }
+}
+
 .event .event-name {
   color: #404044;
   font-weight: bold;
@@ -11367,10 +11379,11 @@ body,
 }
 
 .event .event-image .event-button {
-  background-color: transparent(#000000, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   color: #ffffff !important;
   width: 256px;
   padding: 12px 0;
+  margin: auto;
   cursor: pointer;
 }
 
