@@ -7,6 +7,6 @@
             A Beer & Wine Festival Every Day Of the Week
         </div>
     </div>
-        <event-component event-data="{{ json_encode($events) }}"></event-component>
+    <event-component event-data="{{ json_encode($events) }}"></event-component>
 </div>
 

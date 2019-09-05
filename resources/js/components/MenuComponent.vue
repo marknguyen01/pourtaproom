@@ -2,9 +2,14 @@
     <div class="menu-content">
         <div class="video">
             <div class="video-container">
-                <video loop autoplay muted playsinline>
-                    <source src="img\video.mp4" type="video/mp4">
-                </video>
+                <visual
+                    video='img\video.mp4'
+                    load='visible'
+                    autoplay='visible'
+                    autopause='visible'
+                    loop muted
+                    class="w-100 h-100">
+                </visual>
                 <div class="video-overlay">
                     <div class="video-title font-size--lg text-center w-100">
                         <div class="title-block">
