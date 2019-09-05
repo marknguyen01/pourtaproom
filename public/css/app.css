@@ -10885,9 +10885,8 @@ body,
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/img/hero.png");
   background-position: bottom center;
   background-size: cover;
-  height: -webkit-fill-available;
-  height: -moz-available;
-  height: stretch;
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
 }
 
 #hero .container-fluid {
