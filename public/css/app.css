@@ -11183,7 +11183,8 @@ body,
 }
 
 #contact .contact-form {
-  min-height: 100vh;
+  min-height: 80vh;
+  min-height: calc(var(--vh, 1vh) * 80);
 }
 
 #contact .contact-form .form-group {
@@ -11201,7 +11202,7 @@ body,
   width: 100%;
   background: transparent;
   transition: border-bottom-color 0.5s ease;
-  padding: 12px 0;
+  padding: 6px 0;
 }
 
 #contact .contact-form form input:focus,
@@ -11241,7 +11242,8 @@ body,
 
 #contact .contact-map {
   min-height: 50vh;
-  height: 100vh;
+  height: 80vh;
+  height: calc(var(--vh, 1vh) * 80);
   width: 100%;
   background: #ffffff;
 }
@@ -11411,6 +11413,12 @@ body,
   to {
     transform: rotate(360deg);
   }
+}
+
+#newsletter {
+  background-color: #B10000;
+  color: #ffffff;
+  text-align: center;
 }
 
 html {

@@ -35,6 +35,9 @@
             @include('templates.event')
         </section>
         @endif
+        <section class="section" id="newsletter">
+            @include('templates.newsletter')
+        </section>
         <section id="contact">
             @include('templates.contact')
         </section>
