@@ -36,6 +36,7 @@ class HomeController extends Controller
     private function getEvents() {
         $events = Event::where('published', true)->get();
         $events->map(function($event, $key) {
+            $event->description_text = html_entity_decode(strip_tags($event->description));
             $event->description = \Str::words($event->description, 50);
             if(\App::environment('local')) {
                 $event->image = 'http://pourcharlotte.com/storage/' . json_decode($event->thumbnail('cropped'))[0];

@@ -10,6 +10,7 @@ import BootstrapVue from 'bootstrap-vue';
 import Vue from 'vue'
 import VueLayers from 'vuelayers'
 import 'vuelayers/lib/style.css' // needs css-loader
+import SocialSharing from 'vue-social-sharing'
 
 window.Vue = require('vue');
 
@@ -33,6 +34,7 @@ Vue.use(BootstrapVue);
 Vue.use(VueLayers, {
     dataProjection: 'EPSG:4326',
 });
+Vue.use(SocialSharing);
 
 
 /**
