@@ -1,0 +1,15 @@
+footer {
+    min-height: 10vh;
+    background-color: $black;
+    .footer-container {
+        min-height: 10vh;
+        
+        a {
+            color: $white;
+
+            &:hover {
+                color: $red;
+            }
+        }
+    }
+}

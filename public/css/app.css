@@ -11071,6 +11071,10 @@ body,
   }
 }
 
+#about {
+  min-height: 100vh;
+}
+
 #about .about-img .about-img-left,
 #about .about-img .about-img-right {
   position: relative;
@@ -11213,8 +11217,8 @@ body,
 }
 
 #contact .contact-form {
-  min-height: 80vh;
-  min-height: calc(var(--vh, 1vh) * 80);
+  min-height: 90vh;
+  min-height: calc(var(--vh, 1vh) * 90);
 }
 
 #contact .contact-form .form-group {
@@ -11272,8 +11276,8 @@ body,
 
 #contact .contact-map {
   min-height: 50vh;
-  height: 80vh;
-  height: calc(var(--vh, 1vh) * 80);
+  height: 90vh;
+  height: calc(var(--vh, 1vh) * 90);
   width: 100%;
   background: #ffffff;
 }
@@ -11516,6 +11520,23 @@ body,
   color: #2C2C2C;
 }
 
+footer {
+  min-height: 10vh;
+  background-color: #000000;
+}
+
+footer .footer-container {
+  min-height: 10vh;
+}
+
+footer .footer-container a {
+  color: #ffffff;
+}
+
+footer .footer-container a:hover {
+  color: #B10000;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -11543,11 +11564,6 @@ a:hover {
     padding-left: 144px;
     padding-right: 144px;
   }
-}
-
-#about,
-#contact {
-  min-height: 100vh;
 }
 
 .section {

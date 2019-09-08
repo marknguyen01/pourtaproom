@@ -22,6 +22,7 @@
 @import 'templates/event';
 @import 'templates/loader';
 @import 'templates/newsletter';
+@import 'templates/footer';
 
 html {
     scroll-behavior: smooth;
@@ -49,10 +50,6 @@ a {
             padding-right: ($base-spacing * 12);
         }
     }
-}
-
-#about, #contact {
-    min-height: 100vh;
 }
 
 .section {
