@@ -1,0 +1,68 @@
+
+@import "variables.css";
+@import "templates/hero.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply text-base font-sans
+}
+
+.container {
+    @apply px-4 py-16;
+    @screen xl {
+        @apply p-32
+    }
+}
+
+.logo {
+    @apply block text-center;
+    img {
+        @apply inline-block;
+        width: 180px;
+        height: 120px;
+
+        @screen md {
+            width: 90px;
+            height: 80px;
+        }
+
+        @screen lg {
+            width: 250px;
+            height: 160px;
+        }
+    }
+}
+
+.title-block {
+    @apply text-center font-serif;
+    .title {
+        @apply text-red font-bold text-3xl leading-none;
+
+        @screen lg {
+            @apply text-4xl;
+        }
+        @screen 2xl {
+            @apply text-5xl;
+        }
+    }
+    .sub-title {
+        @apply text-accent text-2xl leading-none mt-4;
+
+        @screen 2xl {
+            @apply text-3xl;
+        }
+    }
+}
+.section-content {
+    @apply mt-8 text-xl;
+
+    @screen lg {
+        @apply: mt-12;
+    }
+    @screen 2xl {
+        @apply mt-16;
+    }
+}

@@ -1,8 +1,6 @@
 #hero {
-    background-image: overlay(transparent($black, 0.2)), url('/img/hero.png');
-    background-position: bottom center;
-    background-size: cover;
-    height: 100vh;
+    background-image: linear-gradient(rgba($color: $black, $alpha: 0.2), rgba($color: $black, $alpha: 0.2)), url("/img/hero.png");
+    @apply bg-cover bg-center bg-bottom;
 }
     // height: calc(var(--vh, 1vh) * 100);
     // .container-fluid {

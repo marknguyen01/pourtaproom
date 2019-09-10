@@ -15,7 +15,7 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <div id="loader">
+        <div id="loader" class="fixed w-screen h-screen bg-white z-50 text-center">
             @include('templates.loader')
         </div>
         <header id="hero">
