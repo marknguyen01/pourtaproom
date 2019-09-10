@@ -11,6 +11,8 @@ import SocialSharing from 'vue-social-sharing'
 import VueSweetalert2 from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 
+window.axios = require('axios');
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /**
  * The following block of code may be used to automatically register your
@@ -35,12 +37,6 @@ Vue.use(SocialSharing);
 Vue.use(VueSweetalert2, {
     confirmButtonColor: '#2C2C2C'
 });
-
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
 
 const app = new Vue({
     el: '#app',
