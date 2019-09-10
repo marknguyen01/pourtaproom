@@ -11,7 +11,8 @@ module.exports = {
         textColor: {
             'white': '#FFF',
             'red': '#B10000',
-            'accent': '#484E51',
+            'primary-color': '#404044',
+            'accent-color': '#484E51',
             'black':'#2C2C2C',
         },
         backgroundColor: {

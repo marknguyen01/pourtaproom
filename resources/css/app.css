@@ -4,14 +4,23 @@
 @import "templates/hero.css";
 @import "templates/about.css";
 @import "templates/menu.css";
-
+@import "templates/event.css";
 @import "templates/newsletter.css";
-
+@import "templates/contact.css";
 @import "templates/footer.css";
+
+
+@import "components/button.css";
+@import "components/tooltip.css";
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     @apply text-base font-sans
@@ -56,7 +65,7 @@ body {
         }
     }
     .sub-title {
-        @apply text-accent text-2xl leading-none mt-4;
+        @apply text-accent-color text-2xl leading-none mt-4;
 
         @screen 2xl {
             @apply text-3xl;
@@ -73,6 +82,8 @@ body {
         @apply mt-16;
     }
 }
+
+
 
 
 .lds-ellipsis {

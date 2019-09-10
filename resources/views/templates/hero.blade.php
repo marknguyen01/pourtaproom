@@ -48,12 +48,12 @@
                 </div>
                 <div class="hero-button mt-4 lg:mt-8 flex flex-wrap">
                     <div class="w-full md:w-1/2 text-center md:text-right">
-                        <a class="btn-white md:mr-2" href="/#menu">
+                        <a class="btn btn-white md:mr-2" href="/#menu">
                             Show Menu
                         </a>
                     </div>
                     <div class="w-full md:w-1/2 mt-4 text-center md:mt-0 md:text-left">
-                        <a class="btn-white md:ml-2" href="/#contact">
+                        <a class="btn btn-white md:ml-2" href="/#contact">
                             Book Event
                         </a>
                     </div>

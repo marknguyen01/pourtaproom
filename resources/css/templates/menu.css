@@ -1,7 +1,7 @@
 #menu {
     @apply relative bg-accent;
     .menu-categories {
-        @apply bg-accent py-4 px-4 flex;
+        @apply bg-accent py-4 px-4;
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
@@ -24,12 +24,15 @@
     .menu-items {
         .menu-item-img {
             display: inline-block;
-            img {
-                @apply border-accent border-solid rounded-full bg-white;
-                width: 90px;
-                height: 90px;
+                @apply border-accent border-solid rounded-full bg-white flex-shrink-0;
+                width: 87px;
+                height: 87px;
                 border-width: 1px;
+            img {
+                width: 85px;
+                height: 85px;
                 max-width: none;
+                border-radius: 50%;
             }
         }
         .menu-item {

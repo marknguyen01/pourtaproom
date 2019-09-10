@@ -10,7 +10,7 @@
                 </div>
             </div>
             <div class="dots-white"></div>
-            <div id="contact-form" class="section-content">
+            <div class="section-content contact-form">
                 <contact-form-component route-data="{{ route('contact') }}"></contact-form-component>
             </div>
         </div>

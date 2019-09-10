@@ -36,7 +36,7 @@
             <transition-group tag="div" class="flex flex-wrap -mx-4" name="fade-out-in">
                 <div class="w-full lg:w-1/2 px-4" v-for="item in items" v-bind:key="item.id">
                     <div class="flex">
-                        <div class="menu-item-img my-3" v-b-popover.top.hover="item.description != undefined && item.description.length > 0 ? item.description : 'No description'">
+                        <div class="menu-item-img my-3" v-tooltip.top-start="item.description != undefined && item.description.length > 0 ? item.description : 'No description'">
                             <visual :image="item.label_image" v-bind:alt="item.name" load="visible" in-viewport-root-margin='-10% 0%' transition='vv-fade'></visual>
                         </div>
                         <div class="menu-item self-center">
@@ -60,10 +60,16 @@
     import axios from "axios";
     import VueVisual from 'vue-visual';
     import 'vue-visual/index.css';
+    import { VTooltip, VPopover, VClosePopover} from 'v-tooltip';
     export default {
         props: ['categoryData', 'itemData'],
         components: {
-            'visual': VueVisual
+            'visual': VueVisual,
+            'v-popover': VPopover,
+        },
+        directives: {
+            'tooltip': VTooltip,
+            'close-popover': VClosePopover,
         },
         data() {
             return {

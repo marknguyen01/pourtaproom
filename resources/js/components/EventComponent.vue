@@ -4,43 +4,22 @@
             <div class="event" v-for="event in events" v-bind:key="event.id">
                 <div class="event-image text-center">
                     <img v-bind:data-lazy="event.image" v-bind:alt="event.name" class="img-fluid">
-                    <div class="event-overlay text-center d-flex">
-                        <a class="event-button align-self-center" v-bind:href="event.url">Learn More</a>
-                        <a class="event-button align-self-center" v-on:click="share(event)">Share</a>
+                    <div class="event-overlay text-center flex justify-center">
+                        <a class="event-button" v-bind:href="event.url">Learn More</a>
+                        <a class="event-button" v-on:click="share(event)">Share</a>
                     </div>
                 </div>
-                <div class="event-date text-center font-size--md">
+                <div class="event-date text-center">
                     <a v-bind:href="event.url">{{ event.date_time }}</a>
                 </div>
                 <div class="event-name text-center font-size--rg">
                     <a v-bind:href="event.url">{{ event.name }}</a>
                 </div>
                 <div class="dots-grey"></div>
-                <div class="event-decription" v-html="event.description">
+                <div class="event-description" v-html="event.description">
                 </div>
             </div>
         </slick>
-        <b-modal id="shareModal" ok-only centered hide-header>
-            <social-sharing :url="modal.url"
-                      :title="modal.title"
-                      :description="modal.description"
-                      inline-template>
-                <div>
-                    <network network="email">
-                        <ion-icon name="mail"></ion-icon> Email
-                    </network>
-                    <network network="facebook">
-                        <ion-icon name="logo-facebook"></ion-icon> Facebook
-                    </network>
-                    <network network="twitter">
-                        <ion-icon name="logo-twitter"></ion-icon> Twitter
-                    </network>
-                    <network network="whatsapp">
-                        <ion-icon name="logo-whatsapp"></ion-icon> Whatsapp
-                    </network>
-                </div>
-            </social-sharing>
-        </b-modal>
     </div>
 </template>
 
@@ -50,7 +29,7 @@ import 'slick-carousel/slick/slick.css';
 
 export default {
     components: {
-        Slick
+        Slick,
     },
     props: ['eventData'],
     data() {
@@ -83,10 +62,24 @@ export default {
     },
     methods: {
         share: function(eventData) {
-            this.modal.url = eventData.url;
-            this.modal.title = eventData.title;
-            this.modal.description = eventData.description_text;
-            this.$bvModal.show('shareModal');
+            this.$swal.fire({
+                title: 'Share this event',
+                html: `
+                    <a class="mr-4" href="mailto:?subject=${eventData.name}&body=${eventData.description_text}" target="_blank">
+                        <ion-icon name="mail" class="align-middle"></ion-icon>Email
+                    </a>
+                    <a class="mr-4" href="https://www.facebook.com/sharer/sharer.php?u=${eventData.url}&title=${eventData.name}&description=${eventData.description_text}" target="_blank">
+                        <ion-icon name="logo-facebook" class="align-middle"></ion-icon>Facebook
+                    </a>
+                    <a class="mr-4" href="https://twitter.com/intent/tweet?text=${eventData.name}%0A${eventData.url}" target="_blank">
+                        <ion-icon name="logo-twitter" class="align-middle"></ion-icon>Twitter
+                    </a>
+                    <a href="whatsapp://send?text=${eventData.name}%0A${eventData.url}" data-action="share/whatsapp/share">
+                        <ion-icon name="logo-whatsapp" class="align-middle"></ion-icon>Whatsapp
+                    </a>
+                `,
+                type: 'info'
+            });
         }
     },
 }
