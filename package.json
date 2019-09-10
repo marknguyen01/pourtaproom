@@ -29,6 +29,7 @@
         "bootstrap-vue": "^2.0.0-rc.28",
         "luxon": "^1.17.2",
         "ol": "^5.3.3",
+        "tailwindcss": "^1.1.2",
         "vue-datetime": "^1.0.0-beta.10",
         "vue-slick": "^1.1.15",
         "vue-social-sharing": "^2.4.6",
