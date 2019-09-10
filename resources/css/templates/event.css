@@ -1,0 +1,74 @@
+#event {
+    .slick-slide {
+        @screen md {
+            @apply mx-4;
+        }
+    }
+    .slick-list {
+        @screen md {
+            @apply -mx-4
+        }
+    }
+}
+.event {
+    .event-name {
+        @apply text-primary-color text-2xl font-bold;
+    }
+    .event-date {
+        @apply text-accent-color text-2xl;
+    }
+    .event-image {
+        position: relative;
+        overflow: hidden;
+        &:hover {
+            .event-overlay {
+                opacity: 1;
+            }
+            img {
+                transform: scale(1.5);
+            }
+        }
+        img {
+            width: 100%;
+            transform-origin: center center;
+            transition: transform 0.75s, visiblity 0.75s ease-in;
+        }
+        .event-overlay {
+            @apply absolute p-8;
+            position: absolute;
+            opacity: 0;
+            transition: 0.75s opacity ease;
+            width: 80%;
+            height: 80%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            top: 50%;
+        }
+        .event-button {
+            @apply text-white py-4 px-8 relative;
+            background-color: $blackTransparent2;
+            width: 256px;
+            margin: auto;
+            cursor: pointer;
+            transition: 0.75s background-color ease-in;
+            &:first-of-type {
+                @apply mr-4
+            }
+            &:last-of-type {
+                @apply ml-4
+            }
+
+            &:hover {
+                @apply bg-black;
+            }
+        }
+    }
+
+    .event-description {
+        text-align: initial;
+    }
+
+    .event-date, .event-name, .event-description {
+        user-select: text;
+    }
+}

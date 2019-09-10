@@ -25,12 +25,12 @@ class HomeController extends Controller
     }
 
     public function getItems(Request $rq, $sectionID) {
-        if($rq->ajax()) {
+        // if($rq->ajax()) {
             $res = $this->client->request('GET', 'https://business.untappd.com/api/v1/sections/' . $sectionID . '/items')->getBody()->getContents();
 
             return response()->json($res);
-        }
-        else return error(404);
+        // }
+        // else abort(403, 'Unauthorized action.');
     }
 
     private function getEvents() {

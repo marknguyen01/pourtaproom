@@ -1,0 +1,67 @@
+#contact {
+    .contact-form {
+        .form-group {
+            @apply mb-8
+        }
+        form {
+            input, textarea {
+                @apply text-lg border-t-0 border-r-0 border-l-0 border-b-2 border-solid text-white shadow-none w-full bg-transparent pb-2;
+                border-bottom-color: rgba(255,255,255,0.17);
+                transition: border-bottom-color 0.5s ease;
+                &:focus {
+                    @apply border-white outline-none;
+                }
+                &::placeholder {
+                    @apply text-white;
+                }
+            }
+            textarea {
+                resize: none;
+            }
+        }
+    }
+    .contact-map {
+        @apply bg-white w-full;
+        min-height: 50vh;
+        height: 90vh;
+        height: calc(var(--vh, 1vh) * 90);
+    }
+    .contact-btn {
+        @apply w-full;
+        @include media-breakpoint-up(lg) {
+            width: 50%;
+        }
+        &:hover {
+            @apply border-white bg-white text-black;
+        }
+    }
+}
+
+
+.ol-popup {
+    @apply absolute p-4 border-black border-2 border-solid;
+    background-color: $transparentWhite;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 12px;
+}
+.ol-popup:after, .ol-popup:before {
+    top: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+.ol-popup:after {
+    border-top-color: #2C2C2C;
+    border-width: 16px;
+    left: 50%;
+    margin-left: -16px;
+}
+
+.ol-viewport {
+    touch-action: auto !important;
+}
+

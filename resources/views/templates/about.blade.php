@@ -1,16 +1,16 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-6">
-            <div class="about-img d-none d-lg-block">
-                <div class="about-img-left">
+<div class="container">
+    <div class="flex -mx-2">
+        <div class="2xl:w-1/2 px-2">
+            <div class="about-img hidden 2xl:block">
+                <div class="about-img-left float-left">
                     <img src="{{ asset('img/about-1.png') }}" class="img-fluid">
                 </div>
-                <div class="about-img-right">
+                <div class="about-img-right float-right">
                     <img src="{{ asset('img/about-2.png') }}" class="img-fluid">
                 </div>
             </div>
         </div>
-        <div class="col-lg-6 align-self-center">
+        <div class="2xl:w-1/2 self-center px-2">
             <div class="about-content">
                 <div class="title-block">
                     <div class="title">
@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 <div class="dots-grey"></div>
-                <div class="about-text-block text-center mt-3 mt-md-4 mt-lg-5">
+                <div class="about-text-block section-content">
                     Pour Taproom Charlotte is a family owned business, located in the heart of Plaza Midwood.
                     We are the largest self pour taproom in the United States.
                     Sticking to our Carolina's roots, we feature a wide selection of rotating curated local and reginal beers, as well as continuously branch outing giving you the opportunity to taste beers, wines, and ciders from all over the world.

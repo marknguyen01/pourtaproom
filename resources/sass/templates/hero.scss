@@ -1,171 +1,170 @@
 #hero {
-    background-image: overlay(transparent($black, 0.2)), url('/img/hero.png');
-    background-position: bottom center;
-    background-size: cover;
-    height: fill-available;
-    // height: calc(var(--vh, 1vh) * 100);
-    .container-fluid {
-        padding-top: ($base-spacing * 2);
-        padding-bottom: ($base-spacing * 2);
-        @include media-breakpoint-up(lg) {
-            padding-top: ($base-spacing * 3);
-            padding-bottom: ($base-spacing * 3);
-        }
-        @include media-breakpoint-down(md) {
-            @include orientation(landscape) {
-                padding-top: $base-spacing;
-                padding-bottom: $base-spacing;
-            }
-        }
-    }
-
-    #left-nav {
-        position: fixed;
-        top: $base-spacing * 2;
-        z-index: 2;
-        left: 50%;
-        transform: translateX(-50%);
-        @include media-breakpoint-up(lg) {
-            position: unset;
-            top: 0;
-            left: 0;
-            transform: none;
-        }
-        @include media-breakpoint-down(md) {
-            @include orientation(landscape) {
-                top: $base-spacing;
-            }
-        }
-        .navbar-toggler {
-            top: 0;
-            left: 10px;
-            z-index: 1;
-            cursor: pointer;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            background-color: $white;
-            .navbar-toggler-icon {
-                background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-            }
-        }
-
-        .navbar-nav {
-            background-color: white;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            margin-top: $base-spacing;
-            padding: $base-spacing;
-            @include media-breakpoint-up(lg) {
-                background-color: transparent;
-                margin-top: 0;
-                padding: 0;
-            }
-        }
-
-        .nav-link {
-            color: $content-color;
-            @include media-breakpoint-up(lg) {
-                color: $white;
-            }
-        }
-    }
-
-    #right-nav {
-        .nav-link {
-            color: $white;
-        }
-    }
-    .navbar {
-        .nav-item {
-            &:first-of-type {
-                .nav-link {
-                    padding-left: 0;
-                }
-            }
-            &:last-of-type {
-                .nav-link {
-                    padding-right: 0;
-                }
-            }
-            .nav-link {
-                font-family: $font-lora;
-                @include media-breakpoint-up(lg) {
-                    padding: 0 ($base-spacing * 2);
-                }
-            }
-
-            .social-icon {
-                font-size: 36px;
-                line-height: 36px;
-                padding-top: 0;
-                padding-bottom: 0;
-                ion-icon {
-                    vertical-align: top;
-                }
-            }
-        }
-    }
-
-    .hero-content {
-        @include media-breakpoint-up(lg) {
-            max-width: 50vw;
-            margin: 0 auto;
-        }
-    }
-
-    .hero-logo {
-        img {
-            $w: 180px;
-            $h: 120px;
-            width: $w;
-            height: $h;
-            @include media-breakpoint-down(md) {
-                @include orientation(landscape) {
-                    width: $w * 0.7;
-                    height: $h * 0.7;
-                }
-            }
-        }
-    }
-
-    .hero-scroll {
-        font-family: $font-poppins;
-        font-size: $font-rg;
-        position: absolute;
-        bottom: 0;
-        z-index: 3;
-        left: 50%;
-        transform: translateX(-50%);
-        @include media-breakpoint-down(md) {
-            @include orientation(landscape) {
-                display: none;
-            }
-        }
-        .scroll-line {
-            width: 2px;
-            background-color: $white;
-            position: relative;
-            bottom: 0;
-            display: block;
-            left: 50%;
-            transform: translateX(-50%);
-            animation-duration: 1.5s;
-            animation-iteration-count: infinite;
-            animation-name: movingLine;
-            transition: height 1.5s ease;
-        }
-    }
-    .hero-button {
-        margin-top: $base-spacing * 6;
-        @include media-breakpoint-down(md) {
-            @include orientation(landscape) {
-                margin-top: $base-spacing;
-            }
-        }
-    }
-    .dots-white {
-        @include media-breakpoint-down(md) {
-            @include orientation(landscape) {
-                display: none;
-            }
-        }
-    }
+    background-image: linear-gradient(rgba($color: $black, $alpha: 0.2), rgba($color: $black, $alpha: 0.2)), url("/img/hero.png");
+    @apply bg-cover bg-center bg-bottom;
 }
+    // height: calc(var(--vh, 1vh) * 100);
+    // .container-fluid {
+    //     padding-top: ($base-spacing * 2);
+    //     padding-bottom: ($base-spacing * 2);
+    //     @include media-breakpoint-up(lg) {
+    //         padding-top: ($base-spacing * 3);
+    //         padding-bottom: ($base-spacing * 3);
+    //     }
+    //     @include media-breakpoint-down(md) {
+    //         @include orientation(landscape) {
+    //             padding-top: $base-spacing;
+    //             padding-bottom: $base-spacing;
+    //         }
+    //     }
+    // }
+
+//     #left-nav {
+//         position: fixed;
+//         top: $base-spacing * 2;
+//         z-index: 2;
+//         left: 50%;
+//         transform: translateX(-50%);
+//         @include media-breakpoint-up(lg) {
+//             position: unset;
+//             top: 0;
+//             left: 0;
+//             transform: none;
+//         }
+//         @include media-breakpoint-down(md) {
+//             @include orientation(landscape) {
+//                 top: $base-spacing;
+//             }
+//         }
+//         .navbar-toggler {
+//             top: 0;
+//             left: 10px;
+//             z-index: 1;
+//             cursor: pointer;
+//             border: 1px solid rgba(0, 0, 0, 0.1);
+//             background-color: $white;
+//             .navbar-toggler-icon {
+//                 background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+//             }
+//         }
+
+//         .navbar-nav {
+//             background-color: white;
+//             border: 1px solid rgba(0, 0, 0, 0.1);
+//             margin-top: $base-spacing;
+//             padding: $base-spacing;
+//             @include media-breakpoint-up(lg) {
+//                 background-color: transparent;
+//                 margin-top: 0;
+//                 padding: 0;
+//             }
+//         }
+
+//         .nav-link {
+//             color: $content-color;
+//             @include media-breakpoint-up(lg) {
+//                 color: $white;
+//             }
+//         }
+//     }
+
+//     #right-nav {
+//         .nav-link {
+//             color: $white;
+//         }
+//     }
+//     .navbar {
+//         .nav-item {
+//             &:first-of-type {
+//                 .nav-link {
+//                     padding-left: 0;
+//                 }
+//             }
+//             &:last-of-type {
+//                 .nav-link {
+//                     padding-right: 0;
+//                 }
+//             }
+//             .nav-link {
+//                 font-family: $font-lora;
+//                 @include media-breakpoint-up(lg) {
+//                     padding: 0 ($base-spacing * 2);
+//                 }
+//             }
+
+//             .social-icon {
+//                 font-size: 36px;
+//                 line-height: 36px;
+//                 padding-top: 0;
+//                 padding-bottom: 0;
+//                 ion-icon {
+//                     vertical-align: top;
+//                 }
+//             }
+//         }
+//     }
+
+//     .hero-content {
+//         @include media-breakpoint-up(lg) {
+//             max-width: 50vw;
+//             margin: 0 auto;
+//         }
+//     }
+
+//     .hero-logo {
+//         img {
+//             $w: 180px;
+//             $h: 120px;
+//             width: $w;
+//             height: $h;
+//             @include media-breakpoint-down(md) {
+//                 @include orientation(landscape) {
+//                     width: $w * 0.7;
+//                     height: $h * 0.7;
+//                 }
+//             }
+//         }
+//     }
+
+//     .hero-scroll {
+//         font-family: $font-poppins;
+//         font-size: $font-rg;
+//         position: absolute;
+//         bottom: 0;
+//         z-index: 3;
+//         left: 50%;
+//         transform: translateX(-50%);
+//         @include media-breakpoint-down(md) {
+//             @include orientation(landscape) {
+//                 display: none;
+//             }
+//         }
+//         .scroll-line {
+//             width: 2px;
+//             background-color: $white;
+//             position: relative;
+//             bottom: 0;
+//             display: block;
+//             left: 50%;
+//             transform: translateX(-50%);
+//             animation-duration: 1.5s;
+//             animation-iteration-count: infinite;
+//             animation-name: movingLine;
+//             transition: height 1.5s ease;
+//         }
+//     }
+//     .hero-button {
+//         margin-top: $base-spacing * 6;
+//         @include media-breakpoint-down(md) {
+//             @include orientation(landscape) {
+//                 margin-top: $base-spacing;
+//             }
+//         }
+//     }
+//     .dots-white {
+//         @include media-breakpoint-down(md) {
+//             @include orientation(landscape) {
+//                 display: none;
+//             }
+//         }
+//     }
+// }

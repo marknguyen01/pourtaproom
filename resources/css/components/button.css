@@ -1,0 +1,27 @@
+.btn {
+    @apply px-16 py-4 text-base inline-block border-2;
+    transition: 0.75s ease
+}
+
+.btn-black {
+    @apply border-black border-2 border-solid bg-transparent text-black;
+    width: 100%;
+    &:hover {
+        @apply border-red text-red;
+    }
+}
+
+.btn-transparent {
+    @apply border-white border-2 border-solid bg-transparent text-white text-2xl w-2/4;
+}
+
+.btn-white {
+    @apply text-base inline-block rounded-full;
+    @screen lg {
+        @apply text-2xl;
+    }
+
+    &:hover {
+        @apply bg-red border-red;
+    }
+}

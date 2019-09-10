@@ -4,15 +4,13 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
 
-import BootstrapVue from 'bootstrap-vue';
 import Vue from 'vue'
 import VueLayers from 'vuelayers'
-import 'vuelayers/lib/style.css' // needs css-loader
 import SocialSharing from 'vue-social-sharing'
+import VueSweetalert2 from 'vue-sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
 
-window.Vue = require('vue');
 
 /**
  * The following block of code may be used to automatically register your
@@ -30,12 +28,13 @@ Vue.component('contact-form-component', require('./components/ContactFormCompone
 Vue.component('map-component', require('./components/MapComponent.vue').default);
 Vue.component('event-component', require('./components/EventComponent.vue').default);
 
-Vue.use(BootstrapVue);
 Vue.use(VueLayers, {
     dataProjection: 'EPSG:4326',
 });
 Vue.use(SocialSharing);
-
+Vue.use(VueSweetalert2, {
+    confirmButtonColor: '#2C2C2C'
+});
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -44,7 +43,7 @@ Vue.use(SocialSharing);
  */
 
 const app = new Vue({
-    el: '#body',
+    el: '#app',
 });
 
 window.addEventListener('ready', () => {

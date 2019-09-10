@@ -5,90 +5,96 @@
 @import 'variables';
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+// @import '~bootstrap/scss/bootstrap';
 
-@import 'mixins';
-@import 'utilities';
-@import 'animations';
+// @import 'mixins';
+// @import 'utilities';
+// @import 'animations';
 
+// Tailwind
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 
 // Templates
 @import 'templates/hero';
-@import 'templates/about';
-@import 'templates/video';
-@import 'templates/menu';
-@import 'templates/contact';
-@import 'templates/event';
-@import 'templates/loader';
-@import 'templates/newsletter';
-@import 'templates/footer';
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: $font-poppins;
-    @extend %font-size--rg;
-}
-
-a {
-    color: $content-color;
-    &:hover {
-        text-decoration: none;
-        color: $red;
-    }
-}
-
-.container-fluid {
-    padding-left: $base-spacing;
-    padding-right: $base-spacing;
-    @include media-breakpoint-up(lg) {
-        @include orientation(landscape) {
-            padding-left: ($base-spacing * 12);
-            padding-right: ($base-spacing * 12);
-        }
-    }
-}
-
-.section {
-    padding-top: 10vh;
-    padding-bottom: 10vh;
-}
-.title-block {
-    text-align: center;
-    .title {
-        font-family: $font-lora;
-        @extend %font-size--lg;
-        color: $red;
-        font-weight: bold;
-        line-height: $font-lg - 16px;
-        @include media-breakpoint-up(lg) {
-            line-height: $font-lg;
-        }
-        padding: $base-spacing 0;
-    }
-    .sub-title {
-        font-family: $font-lora;
-        @extend %font-size--md;
-        line-height: $font-md - 6px;
-        @include media-breakpoint-up(lg) {
-            line-height: $font-md;
-        }
-        padding-bottom: $base-spacing;
-        color: $subtitle-color;
-    }
-}
+// @import 'templates/about';
+// @import 'templates/video';
+// @import 'templates/menu';
+// @import 'templates/contact';
+// @import 'templates/event';
+// @import 'templates/loader';
+// @import 'templates/newsletter';
+// @import 'templates/footer';
 
 
-.dots-grey {
-    @include create-dots($subtitle-color)
-}
 
-.dots-white {
-    @include create-dots($white)
-}
+// html {
+//     scroll-behavior: smooth;
+// }
+
+// body {
+//     font-family: $font-poppins;
+//     @extend %font-size--rg;
+// }
+
+// a {
+//     color: $content-color;
+//     &:hover {
+//         text-decoration: none;
+//         color: $red;
+//     }
+// }
+
+// .container-fluid {
+//     padding-left: $base-spacing;
+//     padding-right: $base-spacing;
+//     @include media-breakpoint-up(lg) {
+//         @include orientation(landscape) {
+//             padding-left: ($base-spacing * 12);
+//             padding-right: ($base-spacing * 12);
+//         }
+//     }
+// }
+
+// .section {
+//     padding-top: 10vh;
+//     padding-bottom: 10vh;
+// }
+// .title-block {
+//     text-align: center;
+//     .title {
+//         font-family: $font-lora;
+//         @extend %font-size--lg;
+//         color: $red;
+//         font-weight: bold;
+//         line-height: $font-lg - 16px;
+//         @include media-breakpoint-up(lg) {
+//             line-height: $font-lg;
+//         }
+//         padding: $base-spacing 0;
+//     }
+//     .sub-title {
+//         font-family: $font-lora;
+//         @extend %font-size--md;
+//         line-height: $font-md - 6px;
+//         @include media-breakpoint-up(lg) {
+//             line-height: $font-md;
+//         }
+//         padding-bottom: $base-spacing;
+//         color: $subtitle-color;
+//     }
+// }
+
+
+// .dots-grey {
+//     @include create-dots($subtitle-color)
+// }
+
+// .dots-white {
+//     @include create-dots($white)
+// }
 
 .fade-out-in-enter-active,
 .fade-out-in-leave-active {

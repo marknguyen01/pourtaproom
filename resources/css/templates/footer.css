@@ -1,0 +1,13 @@
+#footer {
+    background: #000;
+    min-height: 10vh;
+    .footer-container {
+        min-height: 10vh;
+        a {
+            @apply text-white;
+            &:hover {
+                @apply text-red;
+            }
+        }
+    }
+}

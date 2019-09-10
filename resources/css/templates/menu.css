@@ -1,0 +1,118 @@
+#menu {
+    @apply relative bg-accent;
+    .menu-categories {
+        @apply bg-accent py-4 px-4;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -1px;
+
+        @screen xl {
+            @apply py-8 px-6
+        }
+        .menu-category {
+            @apply py-0 px-2 text-base;
+            @screen xl {
+                @apply text-2xl py-0 px-4;
+            }
+            &.active {
+                font-weight: bold;
+            }
+            cursor: pointer;
+        }
+    }
+    .menu-items {
+        .menu-item-img {
+            display: inline-block;
+                @apply border-accent border-solid rounded-full bg-white flex-shrink-0;
+                width: 87px;
+                height: 87px;
+                border-width: 1px;
+            img {
+                width: 85px;
+                height: 85px;
+                max-width: none;
+                border-radius: 50%;
+            }
+        }
+        .menu-item {
+            @apply inline-block ml-4 text-base;
+
+            @screen xl {
+                @apply text-2xl
+            }
+
+            width: calc(100% - 96px);
+            .menu-item-header {
+                @apply flex;
+                .menu-item-name, .menu-item-abv {
+                    @apply font-bold;
+                    flex: 1 0 auto;
+                }
+                .menu-item-name {
+                    max-width: calc(100% - 110px);
+                }
+                .menu-item-dots {
+                    flex: 0 1 auto;
+                    overflow: hidden;
+                    &:before {
+                        display: block;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: clip;
+                        content:
+                          ". . . . . . . . . . . . . . . . . . . . "
+                          ". . . . . . . . . . . . . . . . . . . . "
+                          ". . . . . . . . . . . . . . . . . . . . "
+                          ". . . . . . . . . . . . . . . . . . . . "
+                    }
+                }
+            }
+        }
+    }
+
+    .menu-loading {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+
+.video {
+    min-height: 50vh;
+    position: relative;
+}
+
+.video-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    video, .video-overlay {
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        max-width: none;
+    }
+
+    .video-overlay {
+        background-color: $blackTransparent2;
+    }
+
+    .video-title {
+        @apply text-white font-serif absolute;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+    }
+}
+

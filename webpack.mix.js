@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+require('laravel-mix-purgecss');
 
 /*
  |--------------------------------------------------------------------------
@@ -10,6 +11,11 @@ const mix = require('laravel-mix');
  | file for the application as well as bundling up all the JS files.
  |
  */
+require('laravel-mix-postcss-config');
 
 mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+    .postCss('resources/css/app.css', 'public/css')
+    // .purgeCss({
+    //     enabled: true
+    // })
+    .postCssConfig();

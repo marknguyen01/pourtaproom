@@ -1,33 +1,31 @@
 <template>
     <div class="contact-map map" id="map">
         <div id="popup" class="ol-popup">
-            <div class="container">
-                <div class="row no-gutters">
-                    <div class="col-6">
-                        <div class="font-family--lora font-size--rg font-weight-bold">
-                            Hours of Operation
-                        </div>
-                        <div class="font-size--sm mt-3">
-                            <p>Mon-Thu: 4pm - 11pm</p>
-                            <p>Friday: 3pm-12am midnight</p>
-                            <p>Sat: 11am - 12am midnight</p>
-                            <p>Sun: 12pm - 10pm</p>
-                        </div>
+            <div class="flex flex-wrap">
+                <div class="w-full lg:w-1/2">
+                    <div class="text-serif text-xl xl:text-2xl font-bold">
+                        Hours of Operation
                     </div>
-                    <div class="col-6">
-                        <div class="font-family--lora font-size--rg font-weight-bold">
-                            Contact Information
-                        </div>
-                        <div class="font-size--sm mt-3">
-                            <p><a v-bind:href="encodedAddress">{{ addressData }}</a></p>
-                            <p><a v-bind:href="'tel:' + phoneData">{{ phoneData }}</a></p>
-                            <p><a href="mailto:charlotte@pourtaproom.com">charlotte@pourtaproom.com</a></p>
-                        </div>
+                    <div class="text-lg lg:mt-4 overflow-hidden">
+                        <p>Mon-Thu: 4pm - 11pm</p>
+                        <p>Friday: 3pm-12am midnight</p>
+                        <p>Sat: 11am - 12am midnight</p>
+                        <p>Sun: 12pm - 10pm</p>
                     </div>
-                    <div class="col-12">
-                        <a class="button button--transparent-grey mt-3 text-center"  v-bind:href="encodedAddress">
-                            GET DIRECTIONS</a>
+                </div>
+                <div class="w-full lg:w-1/2 mt-4 lg:mt-0">
+                    <div class="text-serif text-xl xl:text-2xl font-bold">
+                        Contact Information
                     </div>
+                    <div class="text-lg lg:mt-4 overflow-hidden">
+                        <p><a v-bind:href="encodedAddress">{{ addressData }}</a></p>
+                        <p><a v-bind:href="'tel:' + phoneData">{{ phoneData }}</a></p>
+                        <p><a href="mailto:charlotte@pourtaproom.com">charlotte@pourtaproom.com</a></p>
+                    </div>
+                </div>
+                <div class="w-full">
+                    <a class="btn btn-black mt-4 text-center"  v-bind:href="encodedAddress">
+                        GET DIRECTIONS</a>
                 </div>
             </div>
         </div>

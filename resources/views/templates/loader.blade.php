@@ -18,7 +18,9 @@
     </div>
     <div class="loader-title">{{ setting('site.title') }}</div>
 </div> --}}
-<div class="loader-container">
-    <img src="{{ App::environment('local') ? asset('img/logo.png') : asset('storage/' . setting('site.logo')) }}" alt="{{ setting('site.title') }}">
-    <div class="loader-text">Please wait! Loading...</div>
+<div class="loader-container flex justify-center h-screen">
+    <div class="self-center logo">
+        <img class="inline-block" src="{{ App::environment('local') ? asset('img/logo.png') : asset('storage/' . setting('site.logo')) }}" alt="{{ setting('site.title') }}">
+        <div class="loader-text text-2xl mt-4">Please wait! Loading...</div>
+    </div>
 </div>

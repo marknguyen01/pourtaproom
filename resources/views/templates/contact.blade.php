@@ -1,21 +1,21 @@
-<div class="row no-gutters">
-    <div class="col-lg-7 contact-bg">
-        <div class="contact-form container-fluid section">
+<div class="flex flex-wrap">
+    <div class="w-full lg:w-3/5 bg-black">
+        <div class="contact-container container">
             <div class="title-block">
-                <div class="title text-color--white font-weight-normal">
+                <div class="title text-white">
                     Event Inquiry Form
                 </div>
-                <div class="sub-title text-color--white">
+                <div class="sub-title text-white">
                     Corporate Events, Private Events, Holiday Parties, Birthdays
                 </div>
             </div>
             <div class="dots-white"></div>
-            <div id="contact-form">
+            <div class="section-content contact-form">
                 <contact-form-component route-data="{{ route('contact') }}"></contact-form-component>
             </div>
         </div>
     </div>
-    <div class="col-lg-5">
+    <div class="w-full lg:w-2/5">
         <map-component :address-data="{{ json_encode(setting('contact.address')) }}" :phone-data="{{ json_encode(setting('contact.phone_number')) }}"></map-component>
     </div>
 </div>
