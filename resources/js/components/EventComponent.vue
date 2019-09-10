@@ -40,9 +40,9 @@ export default {
                 dots: false,
                 slidesToScroll: 2,
                 slidesToShow: 2,
-                lazyLoad: 'ondemand',
-                // autoplay: true,
-                // autoplaySpeed: 2000,
+                lazyLoad: 'progressive',
+                autoplay: true,
+                autoplaySpeed: 1000,
                 responsive: [
                     {
                         breakpoint: 767.98,

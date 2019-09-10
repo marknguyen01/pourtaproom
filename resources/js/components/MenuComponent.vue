@@ -30,13 +30,19 @@
             </div>
         </div>
         <div v-if="loading" class="text-center mt-5 menu-loading">
+            <div class="text-base xl:text-xl w-screen">Hover drink image to read their description</div>
             <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
         </div>
         <div class="menu-items container">
             <transition-group tag="div" class="flex flex-wrap -mx-4" name="fade-out-in">
                 <div class="w-full lg:w-1/2 px-4" v-for="item in items" v-bind:key="item.id">
                     <div class="flex">
-                        <div class="menu-item-img my-3" v-tooltip.top-start="item.description != undefined && item.description.length > 0 ? item.description : 'No description'">
+                        <div class="menu-item-img my-3" v-tooltip="{
+                            content: item.description != undefined && item.description.length > 0 ? item.description : 'No description',
+                            trigger: 'click hover focus',
+                            placement: 'top-start',
+                            autoHide: false,
+                            }">
                             <visual :image="item.label_image" v-bind:alt="item.name" load="visible" in-viewport-root-margin='-10% 0%' transition='vv-fade'></visual>
                         </div>
                         <div class="menu-item self-center">
