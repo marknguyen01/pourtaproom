@@ -1,0 +1,31 @@
+#newsletter {
+    @apply bg-red text-white text-center;
+    form {
+        input, button {
+            @apply bg-transparent text-white border-white border-solid w-full;
+            border-width: 2px;
+            transition: 0.75s border-color ease-in, 0.75s color ease-in;
+            box-shadow: none;
+            border-radius: 0;
+            &:hover, &:focus {
+                @apply border-black
+            }
+        }
+
+        input {
+            @apply py-4 px-6;
+            &::placeholder {
+                @apply text-white;
+            }
+        }
+
+        button {
+            @apply px-16 py-4 border-white border-solid text-base inline-block;
+            border-width: 2px;
+            transition: border-color 0.75s ease-in;
+            &:hover {
+                @apply text-white border-black;
+            }
+        }
+    }
+}

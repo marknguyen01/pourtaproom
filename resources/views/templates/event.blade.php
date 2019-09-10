@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container">
     <div class="title-block">
         <div class="title">
             Upcoming Events

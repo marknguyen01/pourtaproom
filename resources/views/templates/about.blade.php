@@ -1,16 +1,16 @@
 <div class="container">
-    <div class="flex">
-        <div class="2xl:w-1/2">
+    <div class="flex -mx-2">
+        <div class="2xl:w-1/2 px-2">
             <div class="about-img hidden 2xl:block">
-                <div class="about-img-left">
+                <div class="about-img-left float-left">
                     <img src="{{ asset('img/about-1.png') }}" class="img-fluid">
                 </div>
-                <div class="about-img-right">
+                <div class="about-img-right float-right">
                     <img src="{{ asset('img/about-2.png') }}" class="img-fluid">
                 </div>
             </div>
         </div>
-        <div class="2xl:w-1/2 self-center">
+        <div class="2xl:w-1/2 self-center px-2">
             <div class="about-content">
                 <div class="title-block">
                     <div class="title">

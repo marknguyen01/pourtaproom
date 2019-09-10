@@ -1,6 +1,9 @@
 module.exports = {
     important: true,
     theme: {
+        container: {
+            center: true,
+        },
         fontFamily: {
             serif: ['Lora', 'serif'],
             sans: ['Poppins', 'sans-serif'],
@@ -9,14 +12,21 @@ module.exports = {
             'white': '#FFF',
             'red': '#B10000',
             'accent': '#484E51',
+            'black':'#2C2C2C',
         },
         backgroundColor: {
             'red': '#B10000',
             'white': '#FFF',
+            'accent': '#F9F9F9',
+            'primary': '#5C5C5D',
+            'transparent': 'transparent',
+            'black':'#2C2C2C',
         },
         borderColor: {
             'red': '#B10000',
             'white': '#FFF',
+            'accent': '#484E51',
+            'black':'#2C2C2C',
         },
         extend: {
             screens: {

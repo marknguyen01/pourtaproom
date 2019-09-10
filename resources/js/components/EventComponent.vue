@@ -1,6 +1,6 @@
 <template>
-    <div class="event-container">
-        <slick :options="slickOptions" class="w-100 mt-3 mt-md-4 mt-lg-5">
+    <div class="event-container section-content">
+        <slick :options="slickOptions" class="w-full">
             <div class="event" v-for="event in events" v-bind:key="event.id">
                 <div class="event-image text-center">
                     <img v-bind:data-lazy="event.image" v-bind:alt="event.name" class="img-fluid">

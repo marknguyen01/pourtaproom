@@ -1,2 +1,3 @@
 $black: #000;
 $blackTransparent: color($black a(0.2));
+$blackTransparent2: color($black a(0.5));

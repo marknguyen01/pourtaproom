@@ -40,7 +40,7 @@
                 @include('templates.contact')
             </section>
         </div>
-        <footer>
+        <footer id="footer">
             @include('templates.footer')
         </footer>
         <script src="{{ asset('js/app.js') }}" async defer></script>
