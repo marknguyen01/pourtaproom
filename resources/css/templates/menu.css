@@ -6,6 +6,9 @@
         left: 50%;
         transform: translateX(-50%);
         bottom: -1px;
+        max-width: 90%;
+        width: max-content;
+
 
         @screen xl {
             @apply py-8 px-6

@@ -23,8 +23,7 @@
     .contact-map {
         @apply bg-white w-full;
         min-height: 50vh;
-        height: 90vh;
-        height: calc(var(--vh, 1vh) * 90);
+        height: inherit;
     }
     .contact-btn {
         @apply w-full;

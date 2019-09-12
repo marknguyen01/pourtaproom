@@ -15,7 +15,7 @@
             </div>
         </div>
     </div>
-    <div class="w-full lg:w-2/5">
+    <div class="w-full lg:w-2/5 flex">
         <map-component :address-data="{{ json_encode(setting('contact.address')) }}" :phone-data="{{ json_encode(setting('contact.phone_number')) }}"></map-component>
     </div>
 </div>
