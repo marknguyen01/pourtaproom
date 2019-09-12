@@ -54,8 +54,9 @@ window.addEventListener('ready', () => {
 window.loading = function() {
     let el = document.getElementById('loader');
     el.classList.add('fadeout');
+    if(!window.location.hash) window.scrollTo(0, 0);
     setTimeout(function() {
-        el.parentNode.removeChild(el)
+        el.parentNode.removeChild(el);
     }, 1000);
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
