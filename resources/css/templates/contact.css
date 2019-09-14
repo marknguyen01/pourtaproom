@@ -22,7 +22,7 @@
     }
     .contact-map {
         @apply bg-white w-full;
-        min-height: 50vh;
+        min-height: 90vh;
         height: inherit;
     }
     .contact-btn {

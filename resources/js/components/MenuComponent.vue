@@ -89,7 +89,7 @@
             changeCategory: function(categoryID) {
                 this.loading = true;
                 this.items = null;
-                axios.get("/menu/" + categoryID).then((res) => {
+                axios.post("/menu/" + categoryID).then((res) => {
                     this.items = JSON.parse(res.data).items;
                     this.active_category = categoryID;
                     this.loading = false;

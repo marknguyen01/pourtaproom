@@ -5,29 +5,69 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Event;
+use DebugBar\DebugBar;
+use Exception;
+use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Psr7;
 
 class HomeController extends Controller
 {
-    private $categories, $items, $client = null;
+    private $menuCategories, $menuItems, $unTappdClient, $eventItems, $errors = null;
     public function __construct() {
-        $this->client = new \GuzzleHttp\Client(['auth' => [trim(setting('api.untappd_id')), trim(setting('api.untappd_token'))]]);
-        $sectionRes = $this->client->request('GET', 'https://business.untappd.com/api/v1/menus/55500/sections')->getBody()->getContents();
-        $this->categories = $sectionRes;
-        $firstSectionID = json_decode($sectionRes, true)['sections'][0]['id'];
-        $itemRes = $this->client->request('GET', 'https://business.untappd.com/api/v1/sections/' . $firstSectionID . '/items')->getBody()->getContents();
-        $this->items = $itemRes;
+        $unTappdApiToken = trim(setting('api.untappd_token'));
+        $unTappdapiID = trim(setting('api.untappd_id'));
+        $unTappdapiMenuID = trim(setting('api.untappd_menu_id'));
+
+        $facebookToken = trim(setting('api.facebook_token'));
+        $facebookID = trim(setting('api.facebook_page_id'));
+
+        if(empty($unTappdApiToken) || empty($unTappdapiID) || empty($unTappdapiMenuID)) {
+            $this->menuCategories = $this->menuItems = null;
+            $this->errors = 'Untappd API Token or User ID or Menu ID is not set, please check your settings';
+        }
+        else {
+            // Create untappd client
+            $this->unTappdClient = new \GuzzleHttp\Client([
+                'auth' => [$unTappdapiID, $unTappdApiToken],
+                'base_uri' => 'https://business.untappd.com/api/v1/',
+                'timeout' => 10.0,
+            ]);
+        }
     }
     public function index() {
         if(\Auth::check() || \App::environment('local')) {
-            return view('index', ['categories' => $this->categories, 'items' => $this->items, 'events' => $this->getEvents()]);
+            if(isset($this->unTappdClient)) $this->getFirstItems();
+            $this->getEvents();
+            return view('index', [
+                'categories' => $this->menuCategories,
+                'items' => $this->menuItems,
+                'events' => $this->eventItems,
+                'errors' => $this->errors,
+            ]);
         }
         else return view('construction');
     }
 
+    private function getFirstItems() {
+        // If Guzzle is not unable to make a request
+        try {
+            $sectionRes = $this->unTappdClient->request('GET', 'menus/'
+                . trim(setting('api.untappd_menu_id')) . '/sections')->getBody()->getContents();
+            $this->menuCategories = $sectionRes;
+            $firstSectionID = json_decode($sectionRes, true)['sections'][0]['id'];
+            $itemRes = $this->unTappdClient->request('GET', 'sections/'
+                . $firstSectionID . '/items')->getBody()->getContents();
+            $this->menuItems = $itemRes;
+        }
+        catch (\Throwable | Exception $e) {
+            $this->menuCategories = $this->menuItems = null;
+            $this->errors = 'Please check your credentials. Cannot establish a connection to Untappd API server. ' . $e->getMessage();
+        }
+    }
+
     public function getItems(Request $rq, $sectionID) {
         if($rq->ajax()) {
-            $res = $this->client->request('GET', 'https://business.untappd.com/api/v1/sections/' . $sectionID . '/items')->getBody()->getContents();
-
+            $res = $this->unTappdClient->request('GET', 'sections/' . $sectionID . '/items')->getBody()->getContents();
             return response()->json($res);
         }
         else abort(403, 'Unauthorized action.');
@@ -48,7 +88,7 @@ class HomeController extends Controller
             $event->url = route('event', $event->slug);
             return $event;
         });
-        return $events;
+        $this->eventItems = $events;
     }
 
     public function createReservation(Request $rq) {

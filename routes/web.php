@@ -12,7 +12,7 @@
 */
 
 Route::get('/', 'HomeController@index')->name('index');
-Route::get('menu/{sectionID}', 'HomeController@getItems')->name('menu');
+Route::post('menu/{sectionID}', 'HomeController@getItems')->name('menu');
 Route::post('/book', 'HomeController@createReservation')->name('contact');
 Route::get('event/{slug}', 'EventController@index')->name('event');
 

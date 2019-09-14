@@ -2,7 +2,7 @@
     @apply bg-red text-white text-center;
     form {
         input, button {
-            @apply bg-transparent text-white border-white border-solid w-full;
+            @apply bg-transparent text-white border-white border-solid w-full outline-none;
             border-width: 2px;
             transition: 0.75s border-color ease-in, 0.75s color ease-in;
             box-shadow: none;
