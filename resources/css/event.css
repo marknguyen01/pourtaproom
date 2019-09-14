@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    @apply text-base font-sans
+}
+
+.container {
+    @apply px-4 py-16;
+    @screen xl {
+        @apply p-32
+    }
+}
+
+
+#hero {
+    height: 50vh;
+}
+
+#event {
+    .event-info {
+        left: 50%;
+        transform: translate(-50%);
+        top: -3rem;
+        width: fit-content;
+        .info {
+            @apply bg-red mr-4 px-8 py-6 text-white;
+
+            :last-of-type {
+                @apply m-0;
+            }
+        }
+    }
+}

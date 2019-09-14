@@ -18,4 +18,9 @@ mix.js('resources/js/app.js', 'public/js')
     // .purgeCss({
     //     enabled: true
     // })
+    .postCssConfig()
+    .postCss('resources/css/event.css', 'public/css')
+    // .purgeCss({
+    //     enabled: true
+    // })
     .postCssConfig();
