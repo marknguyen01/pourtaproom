@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
     private $categories, $items, $client = null;
     public function __construct() {
-        $this->client = new \GuzzleHttp\Client(['auth' => ['marknguyen1621@gmail.com', 'jXrZmHv5Sowh4yoZUtvB']]);
+        $this->client = new \GuzzleHttp\Client(['auth' => [trim(setting('api.untappd_id')), trim(setting('api.untappd_token'))]]);
         $sectionRes = $this->client->request('GET', 'https://business.untappd.com/api/v1/menus/55500/sections')->getBody()->getContents();
         $this->categories = $sectionRes;
         $firstSectionID = json_decode($sectionRes, true)['sections'][0]['id'];
