@@ -60,9 +60,24 @@ window.loading = function() {
     }, 1000);
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
+    document.querySelectorAll('.overlay-nav a').forEach((el) => {
+        el.addEventListener('click', () => {
+            toggleNav();
+        });
+    });
 };
 
 window.addEventListener('resize', () => {
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
 });
+
+window.toggleNav = function() {
+    const nav = document.querySelector('.overlay-nav');
+    if(nav.style.width == "100%") {
+        nav.style.width = "0%";
+    }
+    else {
+        nav.style.width = '100%';
+    }
+}

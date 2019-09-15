@@ -1,24 +1,19 @@
+<div class="overlay-nav block lg:hidden">
+    <div class="overlay-nav-container">
+        @include('templates.nav_items')
+    </div>
+</div>
+
 <div class="hero-container">
     <nav class="hero-navbar">
-        <div class="block lg:hidden fixed lg:relative">
-          <button class="flex items-center px-3 py-2 border rounded text-white border-white">
+        <div class="block lg:hidden fixed lg:relative z-30">
+          <button class="flex items-center px-3 py-2 border rounded text-white bg-black" onclick="toggleNav()">
             <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
           </button>
         </div>
         <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
             <div class="lg:flex-grow lg:inline-block hidden">
-                <a href="/" class="nav-item mr-16">
-                Home
-                </a>
-                <a href="#about" class="nav-item mr-16">
-                About
-                </a>
-                <a href="#menu" class="nav-item mr-16">
-                Menu
-                </a>
-                <a href="#contact" class="nav-item">
-                    Contact
-                </a>
+                @include('templates.nav_items')
             </div>
             <div class="flex justify-center lg:justify-end w-100 lg:w-auto">
                 <a class="social-icon mr-8" href="{{ setting('contact.facebook') }}">

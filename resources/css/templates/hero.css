@@ -64,7 +64,7 @@
 
 
 .hero-scroll {
-    @apply text-lg absolute bottom-0 z-10 text-2xl text-white;
+    @apply text-lg absolute bottom-0 text-2xl text-white z-10;
     left: 50%;
     transform: translateX(-50%);
     animation-duration: 1.5s;
@@ -77,6 +77,27 @@
         left: 50%;
         transform: translateX(-50%);
         height: 50px;
+    }
+}
+
+.overlay-nav {
+    @apply h-full w-0 fixed top-0 left-0 z-20;
+    background-color: $blackTransparent2;
+    overflow-x: hidden;
+    transition: 0.75s width;
+
+    .overlay-nav-container {
+        @apply relative w-full text-center;
+        top: 25%;
+        margin-top: 30px;
+
+        a {
+            @apply block text-white uppercase text-2xl;
+
+            &:not(:first-of-type) {
+                @apply mt-4;
+            }
+        }
     }
 }
 
