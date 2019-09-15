@@ -26,6 +26,12 @@ body {
     @apply text-base font-sans
 }
 
+a {
+    transition: 0.75s color ease;
+    &:hover {
+        @apply text-red;
+    }
+}
 .container {
     @apply px-4 py-16;
     @screen xl {
@@ -91,8 +97,27 @@ body {
     }
 }
 
+.swal2-title {
+    @apply text-primary-color text-xl !important;
 
+    @screen xl {
+        @apply text-2xl !important;
+    }
+}
 
+.swal2-confirm {
+    @apply bg-primary w-full !important;
+}
+
+.swal-share {
+    @apply text-accent-color text-xl;
+
+    ion-icon {
+        position: relative;
+        top: 2px;
+        right: 2px;
+    }
+}
 
 .lds-ellipsis {
     display: inline-block;

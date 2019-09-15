@@ -4,22 +4,23 @@
             <div class="event" v-for="event in events" v-bind:key="event.id">
                 <div class="event-image text-center">
                     <img v-bind:data-lazy="event.image" v-bind:alt="event.name" class="img-fluid">
-                    <div class="event-overlay text-center flex justify-center">
-                        <a class="event-button" v-bind:href="event.url">Learn More</a>
-                        <a class="event-button" v-on:click="share(event)">Share</a>
+                    <a class="event-share-button" v-on:click="share(event)"><ion-icon name="share"></ion-icon></a>
+                    <div class="event-info">
+                        <div class="event-name text-center text-xl xl:text-2xl">
+                            <a v-bind:href="event.url">{{ event.name }}</a>
+                        </div>
+                        <div class="event-date text-center text-lg xl:text-3xl">
+                            <a v-bind:href="event.url">{{ event.date_time }}</a>
+                        </div>
                     </div>
                 </div>
-                <div class="event-date text-center">
-                    <a v-bind:href="event.url">{{ event.date_time }}</a>
-                </div>
-                <div class="event-name text-center font-size--rg">
-                    <a v-bind:href="event.url">{{ event.name }}</a>
-                </div>
                 <div class="dots-grey"></div>
-                <div class="event-description" v-html="event.description">
+                <div class="event-description text-lg mt-2 lg:mt-4 xl:text-xl" v-html="event.description">
                 </div>
             </div>
         </slick>
+        <div class="slider-button-container mt-4">
+        </div>
     </div>
 </template>
 
@@ -36,13 +37,15 @@ export default {
         return {
             'events': JSON.parse(this.eventData),
             slickOptions: {
-                arrows: false,
+                appendArrows: '.slider-button-container',
+                prevArrow: '<button type="button" class="slick-prev mr-2"><ion-icon name="arrow-round-back"></ion-icon></button>',
+                nextArrow: '<button type="button" class="slick-next ml-2"><ion-icon name="arrow-round-forward"></ion-icon></button>',
                 dots: false,
                 slidesToScroll: 2,
                 slidesToShow: 2,
                 lazyLoad: 'progressive',
-                autoplay: true,
-                autoplaySpeed: 1000,
+                autoplaySpeed: 3500,
+
                 responsive: [
                     {
                         breakpoint: 767.98,
@@ -63,19 +66,19 @@ export default {
     methods: {
         share: function(eventData) {
             this.$swal.fire({
-                title: 'Share this event',
+                title: `Share ${eventData.name}`,
                 html: `
-                    <a class="mr-4" href="mailto:?subject=${eventData.name}&body=${eventData.description_text}" target="_blank">
-                        <ion-icon name="mail" class="align-middle"></ion-icon>Email
+                    <a class="mr-4 swal-share" href="mailto:?subject=${eventData.name}&body=${eventData.description_text}" target="_blank">
+                        <ion-icon name="mail"></ion-icon>Email
                     </a>
-                    <a class="mr-4" href="https://www.facebook.com/sharer/sharer.php?u=${eventData.url}&title=${eventData.name}&description=${eventData.description_text}" target="_blank">
-                        <ion-icon name="logo-facebook" class="align-middle"></ion-icon>Facebook
+                    <a class="mr-4 swal-share" href="https://www.facebook.com/sharer/sharer.php?u=${eventData.url}&title=${eventData.name}&description=${eventData.description_text}" target="_blank">
+                        <ion-icon name="logo-facebook"></ion-icon>Facebook
                     </a>
-                    <a class="mr-4" href="https://twitter.com/intent/tweet?text=${eventData.name}%0A${eventData.url}" target="_blank">
-                        <ion-icon name="logo-twitter" class="align-middle"></ion-icon>Twitter
+                    <a class="mr-4 swal-share" href="https://twitter.com/intent/tweet?text=${eventData.name}%0A${eventData.url}" target="_blank">
+                        <ion-icon name="logo-twitter"></ion-icon>Twitter
                     </a>
-                    <a href="whatsapp://send?text=${eventData.name}%0A${eventData.url}" data-action="share/whatsapp/share">
-                        <ion-icon name="logo-whatsapp" class="align-middle"></ion-icon>Whatsapp
+                    <a class="swal-share" href="whatsapp://send?text=${eventData.name}%0A${eventData.url}" data-action="share/whatsapp/share">
+                        <ion-icon name="logo-whatsapp"></ion-icon>Whatsapp
                     </a>
                 `,
                 type: 'info'

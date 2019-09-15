@@ -22,6 +22,6 @@
     }
 
     &:hover {
-        @apply bg-red border-red;
+        @apply bg-red border-red text-white;
     }
 }

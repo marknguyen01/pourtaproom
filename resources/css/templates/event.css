@@ -10,65 +10,71 @@
         }
     }
 }
-.event {
-    .event-name {
-        @apply text-primary-color text-2xl font-bold;
-    }
-    .event-date {
-        @apply text-accent-color text-2xl;
-    }
-    .event-image {
-        position: relative;
-        overflow: hidden;
-        &:hover {
-            .event-overlay {
-                opacity: 1;
+
+.event-container {
+    .event {
+        .event-name {
+            @apply text-white font-bold font-serif;
+        }
+        .event-date {
+            @apply text-white;
+        }
+        .event-image {
+            position: relative;
+            overflow: hidden;
+            &:hover {
+                .event-info, .event-share-button {
+                    background-color: $black;
+                }
+                img {
+                    transform: scale(1.5);
+                }
             }
             img {
-                transform: scale(1.5);
+                width: 100%;
+                transform-origin: center center;
+                transition: transform 0.75s, visiblity 0.75s ease-in;
+            }
+            .event-share-button {
+                @apply text-white absolute;
+                height: 36px;
+                width: 36px;
+                line-height: 44px;
+                background-color: $blackTransparent2;
+                cursor: pointer;
+                border-radius: 50%;
+                top: 8px;
+                right: 8px;
+
+                @screen lg {
+                    top: 16px;
+                    right: 16px
+                }
             }
         }
-        img {
-            width: 100%;
-            transform-origin: center center;
-            transition: transform 0.75s, visiblity 0.75s ease-in;
+
+        .event-description {
+            text-align: initial;
         }
-        .event-overlay {
-            @apply absolute p-8;
+
+        .event-date, .event-name, .event-description {
+            user-select: text;
+        }
+        .event-info {
+            @apply absolute py-4;
             position: absolute;
-            opacity: 0;
-            transition: 0.75s opacity ease;
-            width: 80%;
-            height: 80%;
+            width: calc(100% + 1px);
             left: 50%;
             transform: translateX(-50%) translateY(-50%);
             top: 50%;
-        }
-        .event-button {
-            @apply text-white py-4 px-8 relative;
             background-color: $blackTransparent2;
-            width: 256px;
-            margin: auto;
-            cursor: pointer;
-            transition: 0.75s background-color ease-in;
-            &:first-of-type {
-                @apply mr-4
-            }
-            &:last-of-type {
-                @apply ml-4
-            }
-
-            &:hover {
-                @apply bg-black;
-            }
+            transition: 0.75s background-color ease;
         }
     }
-
-    .event-description {
-        text-align: initial;
-    }
-
-    .event-date, .event-name, .event-description {
-        user-select: text;
+    .slick-prev, .slick-next {
+        @apply border-accent border-solid border-2;
+        height: 64px;
+        width: 64px;
+        line-height: 64px;
     }
 }
