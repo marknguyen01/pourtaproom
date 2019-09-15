@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ setting('site.title') }} | Charlotte {{ isset($title) ? '|' . $title : '' }}</title>
-    <meta name="description" content="">
+    <title>{{ setting('site.title') }} | {{ setting('seo.place_name') }} | {{ $event->name }}</title>
+    @include('seo', [
+        'title' => setting('site.title') . ' | ' . setting('seo.place_name') . ' | ' . $event->name,
+        'description' => $event->description,
+        'image_url' => $event->image,
+    ])
     <link rel="stylesheet" href="{{ asset('css/event.css') }}">
 </head>
 <body>

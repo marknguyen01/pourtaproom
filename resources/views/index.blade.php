@@ -6,8 +6,13 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>{{ setting('site.title') }} | Charlotte</title>
-        <meta name="description" content="{{ setting('site.description') }}">
+        <title>{{ setting('site.title') }} | {{ setting('seo.place_name') }}</title>
+        @include('seo', [
+            'title' => setting('site.title') . ' | Charlotte',
+            'description' => setting('seo.description'),
+            'image_url' => asset('storage/' . setting('site.logo')),
+        ])
+        <meta name="description" content="{{ setting('seo.description') }}">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     </head>
